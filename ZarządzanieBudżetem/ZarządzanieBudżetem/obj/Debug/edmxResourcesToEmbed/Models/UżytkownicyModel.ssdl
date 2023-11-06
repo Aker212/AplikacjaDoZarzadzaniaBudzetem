@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BudżetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Projekty">
+    <Key>
+      <PropertyRef Name="IdProjektu" />
+    </Key>
+    <Property Name="IdProjektu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Data_Utworzenia" Type="date" Nullable="false" />
+    <Property Name="IdUżytkownika" Type="int" />
+  </EntityType>
+  <EntityType Name="Użytkownicy">
+    <Key>
+      <PropertyRef Name="IdUżytkownia" />
+    </Key>
+    <Property Name="IdUżytkownia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Hasło" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Sól" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rola" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Projekty__IdUżyt__398D8EEE">
+    <End Role="Użytkownicy" Type="Self.Użytkownicy" Multiplicity="0..1" />
+    <End Role="Projekty" Type="Self.Projekty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Użytkownicy">
+        <PropertyRef Name="IdUżytkownia" />
+      </Principal>
+      <Dependent Role="Projekty">
+        <PropertyRef Name="IdUżytkownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BudżetModelStoreContainer">
+    <EntitySet Name="Projekty" EntityType="Self.Projekty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Użytkownicy" EntityType="Self.Użytkownicy" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Projekty__IdUżyt__398D8EEE" Association="Self.FK__Projekty__IdUżyt__398D8EEE">
+      <End Role="Użytkownicy" EntitySet="Użytkownicy" />
+      <End Role="Projekty" EntitySet="Projekty" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BudżetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Faktury">
+    <Key>
+      <PropertyRef Name="IdFaktury" />
+    </Key>
+    <Property Name="IdFaktury" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kwota" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Opis" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Data_Faktury" Type="DateTime" Precision="0" />
+    <Property Name="Jednostka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Budynek" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pokój" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IdZadania" Type="Int32" />
+    <NavigationProperty Name="Zadania" Relationship="Self.FK__Faktury__IdZadan__4CA06362" FromRole="Faktury" ToRole="Zadania" />
+  </EntityType>
+  <EntityType Name="Projekty">
+    <Key>
+      <PropertyRef Name="IdProjektu" />
+    </Key>
+    <Property Name="IdProjektu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Data_Utworzenia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IdUżytkownika" Type="Int32" />
+    <NavigationProperty Name="Użytkownicy" Relationship="Self.FK__Projekty__IdUżyt__398D8EEE" FromRole="Projekty" ToRole="Użytkownicy" />
+    <NavigationProperty Name="Zadania" Relationship="Self.FK__Zadania__IdProje__46E78A0C" FromRole="Projekty" ToRole="Zadania" />
+  </EntityType>
+  <EntityType Name="Użytkownicy">
+    <Key>
+      <PropertyRef Name="IdUżytkownika" />
+    </Key>
+    <Property Name="IdUżytkownika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Hasło" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sól" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Projekty" Relationship="Self.FK__Projekty__IdUżyt__398D8EEE" FromRole="Użytkownicy" ToRole="Projekty" />
+  </EntityType>
+  <EntityType Name="Wnioski">
+    <Key>
+      <PropertyRef Name="IdWniosku" />
+    </Key>
+    <Property Name="IdWniosku" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NrKsięgowy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Data_Wniosku" Type="DateTime" Precision="0" />
+    <Property Name="Kwota_Dofinansowania" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IdZadania" Type="Int32" />
+    <NavigationProperty Name="Zadania" Relationship="Self.FK__Wnioski__IdZadan__49C3F6B7" FromRole="Wnioski" ToRole="Zadania" />
+  </EntityType>
+  <EntityType Name="Zadania">
+    <Key>
+      <PropertyRef Name="IdZadania" />
+    </Key>
+    <Property Name="IdZadania" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lp" Type="Int32" />
+    <Property Name="Nazwa_Kosztu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Wartość_Ogółem" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Wydatki_Kwalifikowane" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Dofinansowanie" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Kategoria_Kosztów" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ilość_Personelu" Type="Int32" />
+    <Property Name="Zakończone" Type="Boolean" />
+    <Property Name="IdProjektu" Type="Int32" />
+    <NavigationProperty Name="Faktury" Relationship="Self.FK__Faktury__IdZadan__4CA06362" FromRole="Zadania" ToRole="Faktury" />
+    <NavigationProperty Name="Projekty" Relationship="Self.FK__Zadania__IdProje__46E78A0C" FromRole="Zadania" ToRole="Projekty" />
+    <NavigationProperty Name="Wnioski" Relationship="Self.FK__Wnioski__IdZadan__49C3F6B7" FromRole="Zadania" ToRole="Wnioski" />
+  </EntityType>
+  <Association Name="FK__Faktury__IdZadan__4CA06362">
+    <End Role="Zadania" Type="Self.Zadania" Multiplicity="0..1" />
+    <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zadania">
+        <PropertyRef Name="IdZadania" />
+      </Principal>
+      <Dependent Role="Faktury">
+        <PropertyRef Name="IdZadania" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projekty__IdUżyt__398D8EEE">
+    <End Role="Użytkownicy" Type="Self.Użytkownicy" Multiplicity="0..1" />
+    <End Role="Projekty" Type="Self.Projekty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Użytkownicy">
+        <PropertyRef Name="IdUżytkownika" />
+      </Principal>
+      <Dependent Role="Projekty">
+        <PropertyRef Name="IdUżytkownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zadania__IdProje__46E78A0C">
+    <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1" />
+    <End Role="Zadania" Type="Self.Zadania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projekty">
+        <PropertyRef Name="IdProjektu" />
+      </Principal>
+      <Dependent Role="Zadania">
+        <PropertyRef Name="IdProjektu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wnioski__IdZadan__49C3F6B7">
+    <End Role="Zadania" Type="Self.Zadania" Multiplicity="0..1" />
+    <End Role="Wnioski" Type="Self.Wnioski" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zadania">
+        <PropertyRef Name="IdZadania" />
+      </Principal>
+      <Dependent Role="Wnioski">
+        <PropertyRef Name="IdZadania" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BudżetEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Faktury" EntityType="Self.Faktury" />
+    <EntitySet Name="Projekty" EntityType="Self.Projekty" />
+    <EntitySet Name="Użytkownicy" EntityType="Self.Użytkownicy" />
+    <EntitySet Name="Wnioski" EntityType="Self.Wnioski" />
+    <EntitySet Name="Zadania" EntityType="Self.Zadania" />
+    <AssociationSet Name="FK__Faktury__IdZadan__4CA06362" Association="Self.FK__Faktury__IdZadan__4CA06362">
+      <End Role="Zadania" EntitySet="Zadania" />
+      <End Role="Faktury" EntitySet="Faktury" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projekty__IdUżyt__398D8EEE" Association="Self.FK__Projekty__IdUżyt__398D8EEE">
+      <End Role="Użytkownicy" EntitySet="Użytkownicy" />
+      <End Role="Projekty" EntitySet="Projekty" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zadania__IdProje__46E78A0C" Association="Self.FK__Zadania__IdProje__46E78A0C">
+      <End Role="Projekty" EntitySet="Projekty" />
+      <End Role="Zadania" EntitySet="Zadania" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wnioski__IdZadan__49C3F6B7" Association="Self.FK__Wnioski__IdZadan__49C3F6B7">
+      <End Role="Zadania" EntitySet="Zadania" />
+      <End Role="Wnioski" EntitySet="Wnioski" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BudżetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Projekty">
+    <Key>
+      <PropertyRef Name="IdProjektu" />
+    </Key>
+    <Property Name="IdProjektu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Data_Utworzenia" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IdUżytkownika" Type="Int32" />
+    <NavigationProperty Name="Użytkownicy" Relationship="Self.FK__Projekty__IdUżyt__398D8EEE" FromRole="Projekty" ToRole="Użytkownicy" />
+  </EntityType>
+  <EntityType Name="Użytkownicy">
+    <Key>
+      <PropertyRef Name="IdUżytkownia" />
+    </Key>
+    <Property Name="IdUżytkownia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Hasło" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sól" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Projekty" Relationship="Self.FK__Projekty__IdUżyt__398D8EEE" FromRole="Użytkownicy" ToRole="Projekty" />
+  </EntityType>
+  <Association Name="FK__Projekty__IdUżyt__398D8EEE">
+    <End Role="Użytkownicy" Type="Self.Użytkownicy" Multiplicity="0..1" />
+    <End Role="Projekty" Type="Self.Projekty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Użytkownicy">
+        <PropertyRef Name="IdUżytkownia" />
+      </Principal>
+      <Dependent Role="Projekty">
+        <PropertyRef Name="IdUżytkownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BudżetEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Projekty" EntityType="Self.Projekty" />
+    <EntitySet Name="Użytkownicy" EntityType="Self.Użytkownicy" />
+    <AssociationSet Name="FK__Projekty__IdUżyt__398D8EEE" Association="Self.FK__Projekty__IdUżyt__398D8EEE">
+      <End Role="Użytkownicy" EntitySet="Użytkownicy" />
+      <End Role="Projekty" EntitySet="Projekty" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
