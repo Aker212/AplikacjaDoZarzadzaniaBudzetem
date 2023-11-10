@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZarządzanieBudżetem.Models;
 
 namespace ZarządzanieBudżetem
@@ -26,7 +23,7 @@ namespace ZarządzanieBudżetem
             }
         }
 
-        public List<Zadania> GetTasksForProject( )
+        public List<Zadania> GetTasksForProject()
         {
             using (var context = new ApplicationDbContext())
             {

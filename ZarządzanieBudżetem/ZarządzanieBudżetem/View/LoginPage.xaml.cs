@@ -1,20 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Markup;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ZarządzanieBudżetem.Models;
 using ZarządzanieBudżetem.View.Admin;
 using ZarządzanieBudżetem.View.User;
@@ -41,13 +28,13 @@ namespace ZarządzanieBudżetem.View
 
 
 
-       
 
-    private void Login_Click(object sender, RoutedEventArgs e)
+
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
             string Email = EmailTextBox.Text;
             string Password = PasswordBox.Password;
-            
+
             // Wyszukaj użytkownika w bazie danych
             Użytkownicy user = dbContext.Users.FirstOrDefault(u => u.Email == Email);
 
@@ -58,8 +45,8 @@ namespace ZarządzanieBudżetem.View
                 string userRole = GetUserRole(Email);
                 if (userRole == "Admin")
                 {
-                    
-                    
+
+
                     NavigationService.Navigate(new AdministratorPage());
                     MessageBox.Show("Zalogowano pomyślnie!");
                 }
@@ -71,8 +58,8 @@ namespace ZarządzanieBudżetem.View
                 }
 
 
-               
-              
+
+
 
 
 

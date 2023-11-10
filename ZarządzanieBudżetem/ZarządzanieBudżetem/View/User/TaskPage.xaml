@@ -11,28 +11,21 @@
     <Grid Background="AntiqueWhite">
         <Border BorderThickness="1" BorderBrush="Black" Height="400" Width="800">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView Name="TaskListView" ItemsSource="{Binding Tasks}" Margin="22,27,56,59" ScrollViewer.CanContentScroll="False" PreviewMouseWheel="TaskListView_PreviewMouseWheel">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="L.p." DisplayMemberBinding="{Binding Lp}" />
-                            <GridViewColumn Header="Nazwa Kosztu" DisplayMemberBinding="{Binding Nazwa_Kosztu}" />
-                            <GridViewColumn Header="Wartość Ogółem" DisplayMemberBinding="{Binding Wartość_Ogółem}" />
-                            <GridViewColumn Header="Wydatki Kwalifikowane" DisplayMemberBinding="{Binding Wydatki_Kwalifikowane}" />
-                            <GridViewColumn Header="Dofinansowanie" DisplayMemberBinding="{Binding Dofinansowanie}" />
-                            <GridViewColumn Header="Kategoria Kosztów" DisplayMemberBinding="{Binding Kategoria_Kosztów}" />
-                            <GridViewColumn Header="Ilość Personelu" DisplayMemberBinding="{Binding Ilość_Personelu}" />
-                            <GridViewColumn Header="Zakończone">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <CheckBox IsChecked="{Binding Zakończone, Mode=TwoWay}" IsEnabled="False" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                <DataGrid Name="TaskListView" AutoGenerateColumns="False" ItemsSource="{Binding Tasks}" Margin="22,27,56,59" ScrollViewer.CanContentScroll="False" PreviewMouseWheel="TaskListView_PreviewMouseWheel">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="L.p." Binding="{Binding Lp}" Width="Auto" />
+                        <DataGridTextColumn Header="Nazwa Kosztu" Binding="{Binding Nazwa_Kosztu}" Width="Auto" />
+                        <DataGridTextColumn Header="Wartość Ogółem" Binding="{Binding Wartość_Ogółem}" Width="Auto" />
+                        <DataGridTextColumn Header="Wydatki Kwalifikowane" Binding="{Binding Wydatki_Kwalifikowane}" Width="Auto" />
+                        <DataGridTextColumn Header="Dofinansowanie" Binding="{Binding Dofinansowanie}" Width="Auto" />
+                        <DataGridTextColumn Header="Kategoria Kosztów" Binding="{Binding Kategoria_Kosztów}" Width="Auto" />
+                        <DataGridTextColumn Header="Ilość Personelu" Binding="{Binding Ilość_Personelu}" Width="Auto" />
+                        <DataGridCheckBoxColumn Header="Zakończone" Binding="{Binding Zakończone, Mode=TwoWay}" Width="Auto" />
+                    </DataGrid.Columns>
+                </DataGrid>
             </ScrollViewer>
         </Border>
         <Button Name="EndTask" Content="Zakończ" HorizontalAlignment="Left" Height="39" Margin="10,117,0,0" VerticalAlignment="Top" Width="85" Click="EndTask_Click"/>
+        <Button Name="Save" Content="Zapisz" HorizontalAlignment="Left" Height="37" Margin="10,188,0,0" VerticalAlignment="Top" Width="85" Click="Save_Click"/>
     </Grid>
 </Page>

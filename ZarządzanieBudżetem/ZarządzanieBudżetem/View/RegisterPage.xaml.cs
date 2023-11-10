@@ -21,7 +21,7 @@ namespace ZarządzanieBudżetem.View
 
         private void Register_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-           
+
 
             string email = EmailTextBox.Text;
             string password = PasswordBox.Password;
@@ -40,35 +40,36 @@ namespace ZarządzanieBudżetem.View
                 MessageBox.Show("Użytkownik z takim emailem już istnieje.");
             }
 
-          else { 
-
-            if (password == passwordRepaty)
-            {
-
-
-                using (var context = new ApplicationDbContext())
-                {
-                    var newUser = new Użytkownicy
-                    {
-                        Email = email,
-                        Hasło = hashedPassword,
-                        Sól = salt,
-                        Rola = role
-                        
-                    };
-
-                    context.Users.Add(newUser);
-                    context.SaveChanges();
-                    MessageBox.Show("Użytkownik został pomyślnie utworzony.");
-                        NavigationService.Navigate(new LoginPage());
-
-                }
-            }
             else
             {
-                MessageBox.Show("Hasła się różnią.");
+
+                if (password == passwordRepaty)
+                {
+
+
+                    using (var context = new ApplicationDbContext())
+                    {
+                        var newUser = new Użytkownicy
+                        {
+                            Email = email,
+                            Hasło = hashedPassword,
+                            Sól = salt,
+                            Rola = role
+
+                        };
+
+                        context.Users.Add(newUser);
+                        context.SaveChanges();
+                        MessageBox.Show("Użytkownik został pomyślnie utworzony.");
+                        NavigationService.Navigate(new LoginPage());
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Hasła się różnią.");
+                }
             }
-          }
         }
     }
 }
