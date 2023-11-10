@@ -5,17 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ZarządzanieBudżetem.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1000"
       Title="LoginPage">
 
     <Grid Background="White">
-        <Label Content="Logowanie" HorizontalAlignment="Center" FontSize="28" Margin="0,44,0,0" VerticalAlignment="Top" Height="54" Width="184"/>
-        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" Margin="0,147,0,274" Width="192" Height="29"/>
-        <PasswordBox PasswordChar="*" x:Name="PasswordBox" HorizontalAlignment="Center" Margin="0,235,0,0" VerticalAlignment="Top" Width="192" Height="29"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="304,120,0,0"  VerticalAlignment="Top" Width="130">
+        <Label Content="Logowanie" HorizontalAlignment="Left" FontSize="28" Margin="312,50,0,0" VerticalAlignment="Top" Height="54" Width="184"/>
+        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Margin="308,154,0,266" Width="192" Height="29"/>
+        <PasswordBox PasswordChar="*" x:Name="PasswordBox" HorizontalAlignment="Left" Margin="308,242,0,0" VerticalAlignment="Top" Width="192" Height="28"/>
+        <Label HorizontalAlignment="Left" Height="24" Margin="308,126,0,0"  VerticalAlignment="Top" Width="130">
             <Run Language="pl-pl" Text="Email"/>
         </Label>
-        <Label HorizontalAlignment="Left" Height="23" Margin="304,212,0,0"  VerticalAlignment="Top" Width="130">
+        <Label HorizontalAlignment="Left" Height="24" Margin="308,0,0,0"  VerticalAlignment="Center" Width="140">
             <Run Language="pl-pl" Text="Hasło"/>
         </Label>
         <Button x:Name="Register" Content="Przejdź do rejestracji" HorizontalAlignment="Left" Height="46" Margin="197,318,0,0" VerticalAlignment="Top" Width="146" Click="Register_Click"/>

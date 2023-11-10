@@ -5,24 +5,24 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ZarządzanieBudżetem.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1000"
       Title="RegisterPage">
 
     <Grid Background="White">
-        <Label Content="Rejestracja" HorizontalAlignment="Center" FontSize="28" Margin="0,44,0,0" VerticalAlignment="Top" Height="54" Width="184"/>
-        <TextBox Name="EmailTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" Margin="0,143,0,270" Width="192" Height="29"/>
+        <Label Content="Rejestracja" HorizontalAlignment="Left" FontSize="28" Margin="392,51,0,0" VerticalAlignment="Top" Height="54" Width="184"/>
+        <TextBox Name="EmailTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Margin="388,154,0,267" Width="192" Height="29"/>
 
-        <PasswordBox PasswordChar="*" Name="PasswordBox" HorizontalAlignment="Center" Margin="0,235,0,0" VerticalAlignment="Top" Width="192" Height="29"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="304,120,0,0"  VerticalAlignment="Top" Width="130">
+        <PasswordBox PasswordChar="*" Name="PasswordBox" HorizontalAlignment="Left" Margin="388,242,0,0" VerticalAlignment="Top" Width="192" Height="29"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="392,126,0,0"  VerticalAlignment="Top" Width="130">
             <Run Language="pl-pl" Text="Email"/>
         </Label>
-        <Label HorizontalAlignment="Left" Height="23" Margin="304,212,0,0"  VerticalAlignment="Top" Width="130">
+        <Label HorizontalAlignment="Left" Height="23" Margin="392,0,0,0"  VerticalAlignment="Center" Width="130">
             <Run Language="pl-pl" Text="Hasło"/>
         </Label>
-        <Label HorizontalAlignment="Left" Height="23" Margin="304,281,0,0"  VerticalAlignment="Top" Width="130" Content="Powtórz hasło"/>
-        <PasswordBox PasswordChar="*" Name="PasswordBoxRepat" HorizontalAlignment="Center" Margin="0,309,0,0" VerticalAlignment="Top" Width="192" Height="29"/>
-        <Button Name="Register" Content="Zarejestruj" HorizontalAlignment="Left" Height="46" Margin="223,377,0,0" VerticalAlignment="Top" Width="146" Click="Register_Click"/>
-        <Button Name="Login" Content="Przejdź do logowania" HorizontalAlignment="Left" Height="46" Margin="436,377,0,0" VerticalAlignment="Top" Width="144" Click="Login_Click"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="388,288,0,0"  VerticalAlignment="Top" Width="130" Content="Powtórz hasło"/>
+        <PasswordBox PasswordChar="*" Name="PasswordBoxRepat" HorizontalAlignment="Left" Margin="388,316,0,0" VerticalAlignment="Top" Width="192" Height="29"/>
+        <Button Name="Register" Content="Zarejestruj" HorizontalAlignment="Left" Height="46" Margin="265,377,0,0" VerticalAlignment="Top" Width="146" Click="Register_Click"/>
+        <Button Name="Login" Content="Przejdź do logowania" HorizontalAlignment="Left" Height="46" Margin="542,377,0,0" VerticalAlignment="Top" Width="144" Click="Login_Click"/>
 
 
 

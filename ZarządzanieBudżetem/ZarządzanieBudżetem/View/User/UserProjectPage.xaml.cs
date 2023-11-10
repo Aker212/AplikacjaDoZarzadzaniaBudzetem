@@ -38,6 +38,20 @@ namespace ZarządzanieBudżetem.View.User
             NavigationService.Navigate(new UserAddProjectPage());
         }
 
-  
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (ProjectList.SelectedItem != null)
+            {
+                Projekty selectedProject = (Projekty)ProjectList.SelectedItem;
+
+                
+                App.CurrentProjectId = selectedProject.IdProjektu;
+                NavigationService.Navigate(new TaskPage());
+                
+
+
+
+            }
+        }
     }
 }

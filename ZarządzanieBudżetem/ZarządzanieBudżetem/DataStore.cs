@@ -25,5 +25,15 @@ namespace ZarządzanieBudżetem
                              .ToList();
             }
         }
+
+        public List<Zadania> GetTasksForProject( )
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Tasks
+                              .Where(z => z.IdProjektu == App.CurrentProjectId)
+                              .ToList();
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace ZarządzanieBudżetem
         public MainWindow()
         {
             InitializeComponent();
-            MainContent.Navigate(new WelcomePage());
+            MainContent.Navigate(new LoginPage());
         }
     }
 }

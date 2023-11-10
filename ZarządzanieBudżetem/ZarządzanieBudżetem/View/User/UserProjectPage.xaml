@@ -10,7 +10,7 @@
 
     <Grid Background="White">
 
-        <ListBox ItemsSource="{Binding Projects}" Margin="92,43,61,112" >
+        <ListBox Name="ProjectList" ItemsSource="{Binding Projects}" MouseDoubleClick="ListBox_MouseDoubleClick" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

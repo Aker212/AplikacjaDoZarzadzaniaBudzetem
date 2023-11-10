@@ -31,3 +31,5 @@ C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\UserProjectPage.baml
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\UserAddProjectPage.g.cs
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\UserAddProjectPage.baml
+C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\TaskPage.g.cs
+C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\TaskPage.baml

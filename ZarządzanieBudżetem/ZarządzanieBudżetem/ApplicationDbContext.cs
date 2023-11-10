@@ -16,6 +16,7 @@ namespace ZarządzanieBudżetem
         }
         public DbSet<Użytkownicy> Users { get; set; }
         public DbSet<Projekty> Projects { get; set; }
+        public DbSet<Zadania> Tasks { get; set; }
 
 
 

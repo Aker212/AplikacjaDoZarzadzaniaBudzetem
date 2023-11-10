@@ -1,0 +1,38 @@
+﻿<Page x:Class="ZarządzanieBudżetem.View.User.TaskPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZarządzanieBudżetem.View.User"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="TaskPage">
+
+    <Grid Background="AntiqueWhite">
+        <Border BorderThickness="1" BorderBrush="Black" Height="400" Width="800">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListView Name="TaskListView" ItemsSource="{Binding Tasks}" Margin="22,27,56,59" ScrollViewer.CanContentScroll="False" PreviewMouseWheel="TaskListView_PreviewMouseWheel">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="L.p." DisplayMemberBinding="{Binding Lp}" />
+                            <GridViewColumn Header="Nazwa Kosztu" DisplayMemberBinding="{Binding Nazwa_Kosztu}" />
+                            <GridViewColumn Header="Wartość Ogółem" DisplayMemberBinding="{Binding Wartość_Ogółem}" />
+                            <GridViewColumn Header="Wydatki Kwalifikowane" DisplayMemberBinding="{Binding Wydatki_Kwalifikowane}" />
+                            <GridViewColumn Header="Dofinansowanie" DisplayMemberBinding="{Binding Dofinansowanie}" />
+                            <GridViewColumn Header="Kategoria Kosztów" DisplayMemberBinding="{Binding Kategoria_Kosztów}" />
+                            <GridViewColumn Header="Ilość Personelu" DisplayMemberBinding="{Binding Ilość_Personelu}" />
+                            <GridViewColumn Header="Zakończone">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Zakończone, Mode=TwoWay}" IsEnabled="False" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </Border>
+        <Button Name="EndTask" Content="Zakończ" HorizontalAlignment="Left" Height="39" Margin="10,117,0,0" VerticalAlignment="Top" Width="85" Click="EndTask_Click"/>
+    </Grid>
+</Page>

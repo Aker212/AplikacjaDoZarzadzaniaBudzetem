@@ -8,5 +8,6 @@ namespace ZarządzanieBudżetem
     public partial class App : Application
     {
         public static int CurrentUserId { get; set; }
+        public static int CurrentProjectId { get; set; }
     }
 }
