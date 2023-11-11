@@ -25,6 +25,7 @@
                 </DataGrid>
             </ScrollViewer>
         </Border>
+        <Button Content="Załaduj z Excela" Click="ImportButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,262,0,0" Height="49" Width="95"/>
         <Button Name="EndTask" Content="Zakończ" HorizontalAlignment="Left" Height="39" Margin="10,117,0,0" VerticalAlignment="Top" Width="85" Click="EndTask_Click"/>
         <Button Name="Save" Content="Zapisz" HorizontalAlignment="Left" Height="37" Margin="10,188,0,0" VerticalAlignment="Top" Width="85" Click="Save_Click"/>
     </Grid>

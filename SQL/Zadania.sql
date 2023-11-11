@@ -1,7 +1,7 @@
 CREATE TABLE Zadania (
     IdZadania INT IDENTITY(1,1) PRIMARY KEY,
     Lp INT,
-    Nazwa_Kosztu NVARCHAR(100),
+    Nazwa_Kosztu NVARCHAR(250),
     Wartoœæ_Ogó³em DECIMAL(18, 2),
     Wydatki_Kwalifikowane DECIMAL(18, 2),
     Dofinansowanie DECIMAL(18, 2),

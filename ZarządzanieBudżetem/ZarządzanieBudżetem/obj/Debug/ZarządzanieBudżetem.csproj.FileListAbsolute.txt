@@ -33,3 +33,10 @@ C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\UserAddProjectPage.baml
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\TaskPage.g.cs
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\TaskPage.baml
+C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\bin\Debug\EPPlus.dll
+C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\bin\Debug\EPPlus.xml
+C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml

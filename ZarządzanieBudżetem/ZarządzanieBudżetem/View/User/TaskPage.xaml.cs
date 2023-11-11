@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
+using ZarządzanieBudżetem.ImportExel;
 using ZarządzanieBudżetem.Models;
 
 namespace ZarządzanieBudżetem.View.User
@@ -111,5 +113,30 @@ namespace ZarządzanieBudżetem.View.User
 
             }
             }
+
+        private void ImportButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Otwórz okno dialogowe do wyboru pliku Excela
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Pliki Excela (*.xlsx)|*.xlsx|Wszystkie pliki (*.*)|*.*",
+                Title = "Wybierz plik Excela"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // Pobierz ścieżkę do wybranego pliku Excela
+                string excelFilePath = openFileDialog.FileName;
+
+                // Utwórz instancję klasy ExcelImporter i zaimportuj dane
+                var excelImporter = new ExcelImporter();
+                excelImporter.ImportData(excelFilePath);
+
+                // Dodaj kod obsługujący, co ma się stać po zaimportowaniu danych (np. wyświetlenie komunikatu)
+                CollectionViewSource.GetDefaultView(Tasks).Refresh();
+                MessageBox.Show("Dane zostały zaimportowane pomyślnie.");
+            }
+
+        }
     }
 }
