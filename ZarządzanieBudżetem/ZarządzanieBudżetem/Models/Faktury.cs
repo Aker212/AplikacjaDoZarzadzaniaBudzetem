@@ -15,6 +15,7 @@ namespace ZarządzanieBudżetem.Models
     public partial class Faktury
     {
         public int IdFaktury { get; set; }
+        public string Nr_faktury { get; set; }
         public Nullable<decimal> Kwota { get; set; }
         public string Opis { get; set; }
         public Nullable<System.DateTime> Data_Faktury { get; set; }

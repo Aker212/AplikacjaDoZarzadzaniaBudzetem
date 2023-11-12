@@ -50,37 +50,23 @@ namespace ZarządzanieBudżetem.View.User
             }
         }
 
-        private void EndTask_Click(object sender, RoutedEventArgs e)
+        private void Details_Click(object sender, RoutedEventArgs e)
         {
             // Sprawdź, czy coś jest zaznaczone w liście
             if (TaskListView.SelectedItem != null)
             {
-                // Sprawdź, czy wybrany element ma właściwość Zakończone
+                // Sprawdź, czy wybrany element ma właściwość IdZadania
                 if (TaskListView.SelectedItem is Zadania selectedItem)
                 {
-                    if (selectedItem.Zakończone == false)
-                    {
-                        selectedItem.Zakończone = true;
-                    }
+                    App.CurrentTaskId = selectedItem.IdZadania;
 
-                    else if (selectedItem.Zakończone == true)
-                    {
-                        selectedItem.Zakończone = false;
-                    }
-
-                    using (var context = new ApplicationDbContext())
-                    {
-                        // Zaktualizuj dane w bazie danych
-                        context.Entry(selectedItem).State = EntityState.Modified;
-                        context.SaveChanges();
-                    }
-
-                    // Odśwież widok, jeśli Twoja kolekcja implementuje INotifyPropertyChanged
-                    CollectionViewSource.GetDefaultView(Tasks).Refresh();
+                    NavigationService.Navigate(new TaskDetailsPage());
 
                 }
+
+
             }
-            else { MessageBox.Show("najpierw wybierz pole do zmiany"); }
+            else { MessageBox.Show("najpierw wybierz pole z listy"); }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -109,7 +95,7 @@ namespace ZarządzanieBudżetem.View.User
                 // Zapisz zmiany w bazie danych
                 context.SaveChanges();
                 MessageBox.Show("Zapisano zmiany");
-
+                CollectionViewSource.GetDefaultView(Tasks).Refresh();
 
             }
             }
@@ -133,10 +119,16 @@ namespace ZarządzanieBudżetem.View.User
                 excelImporter.ImportData(excelFilePath);
 
                 // Dodaj kod obsługujący, co ma się stać po zaimportowaniu danych (np. wyświetlenie komunikatu)
-                CollectionViewSource.GetDefaultView(Tasks).Refresh();
-                MessageBox.Show("Dane zostały zaimportowane pomyślnie.");
+                Tasks = dataStore.GetTasksForProject();
+                TaskListView.ItemsSource = Tasks;
+                
             }
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserProjectPage());
         }
     }
 }

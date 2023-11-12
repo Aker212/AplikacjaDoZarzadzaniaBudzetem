@@ -23,6 +23,26 @@ namespace ZarządzanieBudżetem
             }
         }
 
+        public List<Faktury> GetInvoices()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Invoices
+                             .Where(p => p.IdZadania == App.CurrentTaskId)
+                             .ToList();
+            }
+        }
+
+        public List<Wnioski> GetRequests()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Requests
+                             .Where(p => p.IdZadania == App.CurrentTaskId)
+                             .ToList();
+            }
+        }
+
         public List<Zadania> GetTasksForProject()
         {
             using (var context = new ApplicationDbContext())

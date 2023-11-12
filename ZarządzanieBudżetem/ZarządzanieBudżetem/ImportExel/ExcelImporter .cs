@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using OfficeOpenXml;
 using ZarządzanieBudżetem.Models;
 
@@ -51,6 +52,7 @@ namespace ZarządzanieBudżetem.ImportExel
 
                         // Wywołaj funkcję SaveDataToDatabase, aby zapisać dane do bazy danych
                         SaveDataToDatabase(zadanie);
+
                     }
                 }
 
@@ -72,6 +74,8 @@ namespace ZarządzanieBudżetem.ImportExel
                 context.Tasks.Add(zadanie);
                 context.SaveChanges();
             }
+         
+
         }
     }
 }

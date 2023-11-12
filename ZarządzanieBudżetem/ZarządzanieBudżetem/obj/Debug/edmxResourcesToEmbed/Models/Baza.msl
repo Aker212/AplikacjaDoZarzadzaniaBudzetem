@@ -5,6 +5,7 @@
       <EntityTypeMapping TypeName="BudżetModel.Faktury">
         <MappingFragment StoreEntitySet="Faktury">
           <ScalarProperty Name="IdFaktury" ColumnName="IdFaktury" />
+          <ScalarProperty Name="Nr_faktury" ColumnName="Nr_faktury" />
           <ScalarProperty Name="Kwota" ColumnName="Kwota" />
           <ScalarProperty Name="Opis" ColumnName="Opis" />
           <ScalarProperty Name="Data_Faktury" ColumnName="Data_Faktury" />

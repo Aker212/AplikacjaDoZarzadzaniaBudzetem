@@ -5,6 +5,7 @@
       <PropertyRef Name="IdFaktury" />
     </Key>
     <Property Name="IdFaktury" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nr_faktury" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Kwota" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Opis" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Data_Faktury" Type="DateTime" Precision="0" />
@@ -12,7 +13,7 @@
     <Property Name="Budynek" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Pokój" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="IdZadania" Type="Int32" />
-    <NavigationProperty Name="Zadania" Relationship="Self.FK__Faktury__IdZadan__5FB337D6" FromRole="Faktury" ToRole="Zadania" />
+    <NavigationProperty Name="Zadania" Relationship="Self.FK__Faktury__IdZadan__6FE99F9F" FromRole="Faktury" ToRole="Zadania" />
   </EntityType>
   <EntityType Name="Projekty">
     <Key>
@@ -61,11 +62,11 @@
     <Property Name="Ilość_Personelu" Type="Int32" />
     <Property Name="Zakończone" Type="Boolean" />
     <Property Name="IdProjektu" Type="Int32" />
-    <NavigationProperty Name="Faktury" Relationship="Self.FK__Faktury__IdZadan__5FB337D6" FromRole="Zadania" ToRole="Faktury" />
+    <NavigationProperty Name="Faktury" Relationship="Self.FK__Faktury__IdZadan__6FE99F9F" FromRole="Zadania" ToRole="Faktury" />
     <NavigationProperty Name="Projekty" Relationship="Self.FK__Zadania__IdProje__5CD6CB2B" FromRole="Zadania" ToRole="Projekty" />
     <NavigationProperty Name="Wnioski" Relationship="Self.FK__Wnioski__IdZadan__628FA481" FromRole="Zadania" ToRole="Wnioski" />
   </EntityType>
-  <Association Name="FK__Faktury__IdZadan__5FB337D6">
+  <Association Name="FK__Faktury__IdZadan__6FE99F9F">
     <End Role="Zadania" Type="Self.Zadania" Multiplicity="0..1" />
     <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
     <ReferentialConstraint>
@@ -119,7 +120,7 @@
     <EntitySet Name="Użytkownicy" EntityType="Self.Użytkownicy" />
     <EntitySet Name="Wnioski" EntityType="Self.Wnioski" />
     <EntitySet Name="Zadania" EntityType="Self.Zadania" />
-    <AssociationSet Name="FK__Faktury__IdZadan__5FB337D6" Association="Self.FK__Faktury__IdZadan__5FB337D6">
+    <AssociationSet Name="FK__Faktury__IdZadan__6FE99F9F" Association="Self.FK__Faktury__IdZadan__6FE99F9F">
       <End Role="Zadania" EntitySet="Zadania" />
       <End Role="Faktury" EntitySet="Faktury" />
     </AssociationSet>

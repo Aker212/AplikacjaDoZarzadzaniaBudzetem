@@ -125,6 +125,9 @@
     <Compile Include="View\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\User\TaskDetailsPage.xaml.cs">
+      <DependentUpon>TaskDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\User\TaskPage.xaml.cs">
       <DependentUpon>TaskPage.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\TaskDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
