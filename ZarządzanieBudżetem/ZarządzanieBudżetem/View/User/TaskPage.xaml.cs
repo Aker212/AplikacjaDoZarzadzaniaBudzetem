@@ -19,11 +19,13 @@ namespace ZarządzanieBudżetem.View.User
     public partial class TaskPage : Page
     {
         public List<Zadania> Tasks { get; set; }
+     
         private DataStore dataStore;
         public TaskPage()
         {
             InitializeComponent();
             dataStore = new DataStore();
+           
             Tasks = dataStore.GetTasksForProject();
             DataContext = this;
         }

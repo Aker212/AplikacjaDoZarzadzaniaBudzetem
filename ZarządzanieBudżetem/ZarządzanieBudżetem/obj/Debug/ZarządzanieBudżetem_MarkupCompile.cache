@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\App.xaml
-9-70073234
+1025369459
 2798202449
-26-9691051
+27-615717876
 25-1110839906
-MainWindow.xaml;View\Admin\AdministratorPage.xaml;View\LoginPage.xaml;View\RegisterPage.xaml;View\User\TaskDetailsPage.xaml;View\User\TaskPage.xaml;View\User\UserAddProjectPage.xaml;View\User\UserProjectPage.xaml;View\WelcomePage.xaml;
+MainWindow.xaml;View\Admin\AdministratorPage.xaml;View\LoginPage.xaml;View\RegisterPage.xaml;View\User\AddInvPage.xaml;View\User\TaskDetailsPage.xaml;View\User\TaskPage.xaml;View\User\UserAddProjectPage.xaml;View\User\UserProjectPage.xaml;View\WelcomePage.xaml;
 
 False
 

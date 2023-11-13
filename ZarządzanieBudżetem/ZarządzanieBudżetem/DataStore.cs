@@ -28,7 +28,7 @@ namespace ZarządzanieBudżetem
             using (var context = new ApplicationDbContext())
             {
                 return context.Invoices
-                             .Where(p => p.IdZadania == App.CurrentTaskId)
+                             .Where(f => f.IdZadania == App.CurrentTaskId)
                              .ToList();
             }
         }

@@ -60,6 +60,7 @@
           <ScalarProperty Name="Kategoria_Kosztów" ColumnName="Kategoria_Kosztów" />
           <ScalarProperty Name="Ilość_Personelu" ColumnName="Ilość_Personelu" />
           <ScalarProperty Name="Zakończone" ColumnName="Zakończone" />
+          <ScalarProperty Name="SumaWydatków" ColumnName="SumaWydatków" />
           <ScalarProperty Name="IdProjektu" ColumnName="IdProjektu" />
         </MappingFragment>
       </EntityTypeMapping>

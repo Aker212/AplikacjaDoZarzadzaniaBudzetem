@@ -78,5 +78,16 @@ namespace ZarządzanieBudżetem.View.User
                 e.Handled = true;
             }
         }
+
+        private void AddInv_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddInvPage());
+
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TaskPage());
+        }
     }
 }

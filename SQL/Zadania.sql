@@ -8,5 +8,7 @@ CREATE TABLE Zadania (
     Kategoria_Kosztów NVARCHAR(50),
     Iloœæ_Personelu INT,
     Zakoñczone BIT,
-    IdProjektu INT FOREIGN KEY REFERENCES Projekty(IdProjektu)
+    SumaWydatków DECIMAL(18, 2),
+	IdProjektu INT FOREIGN KEY REFERENCES Projekty(IdProjektu)
+	
 );

@@ -3,10 +3,12 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ZarządzanieBudżetem.View.User"
+      xmlns:importExel="clr-namespace:ZarządzanieBudżetem.ImportExel"
+      xmlns:userView="clr-namespace:ZarządzanieBudżetem.View.User"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1200"
       Title="TaskPage">
+
 
     <Grid Background="AntiqueWhite">
         <Border BorderThickness="1" BorderBrush="Black" Margin="100,10,44,159">
@@ -29,6 +31,11 @@
                         <DataGridTextColumn Header="Kategoria Kosztów" Binding="{Binding Kategoria_Kosztów}" Width="Auto" />
                         <DataGridTextColumn Header="Ilość Personelu" Binding="{Binding Ilość_Personelu}" Width="Auto" />
                         <DataGridCheckBoxColumn Header="Zakończone" Binding="{Binding Zakończone, Mode=TwoWay}" Width="Auto" />
+                        <DataGridTextColumn Header="Wydane" Binding="{Binding SumaWydatków}" Width="Auto" />
+                        
+
+
+
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>

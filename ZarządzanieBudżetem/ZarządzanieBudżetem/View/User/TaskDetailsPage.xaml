@@ -38,5 +38,7 @@
                 </DataGrid>
             </ScrollViewer>
         </Border>
+        <Button Name="AddInv" Content="Dodaj fakture" HorizontalAlignment="Left" Margin="1041,38,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="AddInv_Click"/>
+        <Button Name="Back" Content="Powrót" HorizontalAlignment="Left" Height="44" Margin="29,60,0,0" VerticalAlignment="Top" Width="111" Click="Back_Click"/>
     </Grid>
 </Page>
