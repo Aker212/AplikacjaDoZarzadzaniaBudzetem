@@ -4,11 +4,53 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ZarządzanieBudżetem.View.Admin"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="AdministratorPage">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Border Margin="125,50,81,400">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,20">
+                <DataGrid Name="userViewList" AutoGenerateColumns="False" ItemsSource="{Binding Users}" Margin="45,29,66,61" Width="797">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Email" Width="700" Binding="{Binding Email}" />
+                        <DataGridComboBoxColumn Header="Roles" SelectedItemBinding="{Binding Rola}">
+                            <DataGridComboBoxColumn.ElementStyle>
+                                <Style TargetType="ComboBox">
+                                    <Setter Property="ItemsSource">
+                                        <Setter.Value>
+                                            <x:Array Type="{x:Type sys:String}">
+                                                <sys:String>Admin</sys:String>
+                                                <sys:String>User</sys:String>
+                                            </x:Array>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DataGridComboBoxColumn.ElementStyle>
+                            <DataGridComboBoxColumn.EditingElementStyle>
+                                <Style TargetType="ComboBox">
+                                    <Setter Property="ItemsSource">
+                                        <Setter.Value>
+                                            <x:Array Type="{x:Type sys:String}">
+                                                <sys:String>Admin</sys:String>
+                                                <sys:String>User</sys:String>
+                                            </x:Array>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DataGridComboBoxColumn.EditingElementStyle>
+                        </DataGridComboBoxColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Border>
+        <Button Name="Save" Click="Save_Click" Content="Zapisz" HorizontalAlignment="Left" Height="48" Margin="0,68,0,0" VerticalAlignment="Top" Width="125"/>
+        <Button Name="ChcekProject" Click="ChcekProject_Click"  HorizontalAlignment="Left" Height="48" Margin="0,139,0,0" VerticalAlignment="Top" Width="125">
+            <StackPanel>
+                <TextBlock>Przejdź do projektów</TextBlock>
+                <TextBlock>użytkownika</TextBlock>
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>

@@ -1,0 +1,28 @@
+﻿<Page x:Class="ZarządzanieBudżetem.View.Admin.ProjectSelectedUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZarządzanieBudżetem.View.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="ProjectSelectedUser">
+
+    <Grid>
+        <Grid Background="White">
+
+            <ListBox Name="ProjectList" ItemsSource="{Binding Projects}" MouseDoubleClick="ListBox_MouseDoubleClick" Margin="64,25,157,339" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Nazwa}" />
+                            <TextBlock Text="{Binding Data_Utworzenia}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+        </Grid>
+    </Grid>
+</Page>

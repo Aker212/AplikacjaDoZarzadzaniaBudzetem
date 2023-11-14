@@ -31,7 +31,7 @@
                         <DataGridTextColumn Header="Kategoria Kosztów" Binding="{Binding Kategoria_Kosztów}" Width="Auto" />
                         <DataGridTextColumn Header="Ilość Personelu" Binding="{Binding Ilość_Personelu}" Width="Auto" />
                         <DataGridCheckBoxColumn Header="Zakończone" Binding="{Binding Zakończone, Mode=TwoWay}" Width="Auto" />
-                        <DataGridTextColumn Header="Wydane" Binding="{Binding SumaWydatków}" Width="Auto" />
+                        <DataGridTextColumn Header="Wydane" Binding="{Binding SumaWydatków}" Width="Auto" IsReadOnly="True"  />
                         
 
 

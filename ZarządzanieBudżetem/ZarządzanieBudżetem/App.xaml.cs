@@ -10,5 +10,6 @@ namespace ZarządzanieBudżetem
         public static int CurrentUserId { get; set; }
         public static int CurrentProjectId { get; set; }
         public static int CurrentTaskId { get; set; }
+        public static int SellectedUserId {  get; set; }
     }
 }

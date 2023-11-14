@@ -38,7 +38,7 @@ namespace ZarządzanieBudżetem
             using (var context = new ApplicationDbContext())
             {
                 return context.Requests
-                             .Where(p => p.IdZadania == App.CurrentTaskId)
+                             .Where(w => w.IdZadania == App.CurrentTaskId)
                              .ToList();
             }
         }
@@ -52,5 +52,24 @@ namespace ZarządzanieBudżetem
                               .ToList();
             }
         }
+        public List<Użytkownicy> GetUsers()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Users                              
+                              .ToList();
+            }
+        }
+
+        public List<Projekty> GetSelectedUserProjects()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                return context.Projects
+                             .Where(p => p.IdUżytkownika == App.SellectedUserId)
+                             .ToList();
+            }
+        }
+
     }
 }
