@@ -42,7 +42,6 @@ C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\TaskDetailsPage.g.cs
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\TaskDetailsPage.baml
-C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\AddInvPage.g.cs
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\User\AddInvPage.baml
 C:\Users\Komputer\Desktop\Inzynierka\ZarządzanieBudżetem\ZarządzanieBudżetem\obj\Debug\View\Admin\ProjectSelectedUser.g.cs

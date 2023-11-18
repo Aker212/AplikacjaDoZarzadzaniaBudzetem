@@ -20,9 +20,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
+        
         <Button Content="Dodaj nowy projekt" HorizontalAlignment="Left" Height="52" Margin="64,491,0,0" VerticalAlignment="Top" Width="136" Click="Button_Click"/>
-       
+        <Button Click="DeleteProject_Click" Content="Usuń projekt" HorizontalAlignment="Left" Height="52" Margin="297,491,0,0" VerticalAlignment="Top" Width="148"/>
+
 
     </Grid>
 </Page>
