@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,6 +89,39 @@ namespace ZarządzanieBudżetem.View.User
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new TaskPage());
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            using (var context = new ApplicationDbContext()) 
+            {
+                // Pętla po wszystkich fakturacg w DataGrid
+                foreach (var inv in Invoices)
+                {
+                    // Tutaj możesz dodać logikę zapisywania zmian w bazie danych dla każdej faktury
+                    var existingInv = context.Invoices.Find(inv.IdFaktury);
+
+                    if (existingInv != null)
+                    {
+                        // Aktualizuj pola zadania na podstawie zmian wprowadzonych w interfejsie użytkownika
+                        existingInv.Nr_faktury = inv.Nr_faktury;
+                        existingInv.Kwota = inv.Kwota;
+                        existingInv.Opis = inv.Opis;
+                        existingInv.Data_Faktury = inv.Data_Faktury;
+                        existingInv.Jednostka = inv.Jednostka;
+                        existingInv.Budynek = inv.Budynek;
+                        existingInv.Pokój = inv.Pokój;
+                    }
+                }
+
+                // Zapisz zmiany w bazie danych
+                context.SaveChanges();
+                context.Database.ExecuteSqlCommand("EXEC SumInvoiceAmountForTask @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
+                MessageBox.Show("Zapisano zmiany");
+                CollectionViewSource.GetDefaultView(Invoices).Refresh();
+
+            }
+
         }
     }
 }
