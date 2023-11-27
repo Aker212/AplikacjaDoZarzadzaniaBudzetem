@@ -58,55 +58,59 @@ namespace ZarządzanieBudżetem.View.User
             {
                 Projekty selectedProject = (Projekty)ProjectList.SelectedItem;
 
-                // Usuń z bazy danych
-                using (var context = new ApplicationDbContext())
+                MessageBoxResult result = MessageBox.Show($"Czy na pewno chcesz usunąć projekt {selectedProject.Nazwa}?", "Potwierdzenie usunięcia", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
                 {
-
-                    var projectToDelete = context.Projects
-                 .Where(p => p.IdProjektu == selectedProject.IdProjektu)
-                 .FirstOrDefault();
-
-                    
-
-                    if (projectToDelete != null)
+                    // Usuń z bazy danych
+                    using (var context = new ApplicationDbContext())
                     {
-                        // Pobierz wszystkie związane z projektem zadania, faktury i wnioski
-                        var taskIdsToDelete = context.Tasks
-                            .Where(z => z.IdProjektu == selectedProject.IdProjektu)
-                            .Select(z => z.IdZadania)
-                            .ToList();
 
-                        var invoiceIdsToDelete = context.Invoices
-                            .Where(f => taskIdsToDelete.Contains(f.IdZadania ?? 0))
-                            .Select(f => f.IdFaktury)
-                            .ToList();
+                        var projectToDelete = context.Projects
+                     .Where(p => p.IdProjektu == selectedProject.IdProjektu)
+                     .FirstOrDefault();
 
-                        var requestIdsToDelete = context.Requests
-                            .Where(w => taskIdsToDelete.Contains(w.IdZadania ?? 0))
-                            .Select(w => w.IdWniosku)
-                            .ToList();
 
-                        // Usuń faktury i wnioski
-                        context.Invoices.RemoveRange(context.Invoices.Where(f => invoiceIdsToDelete.Contains(f.IdFaktury)));
-                        context.Requests.RemoveRange(context.Requests.Where(w => requestIdsToDelete.Contains(w.IdWniosku)));
 
-                        // Usuń zadania
-                        context.Tasks.RemoveRange(context.Tasks.Where(z => taskIdsToDelete.Contains(z.IdZadania)));
+                        if (projectToDelete != null)
+                        {
+                            // Pobierz wszystkie związane z projektem zadania, faktury i wnioski
+                            var taskIdsToDelete = context.Tasks
+                                .Where(z => z.IdProjektu == selectedProject.IdProjektu)
+                                .Select(z => z.IdZadania)
+                                .ToList();
 
-                        // Usuń projekt
-                        context.Projects.Remove(projectToDelete);
+                            var invoiceIdsToDelete = context.Invoices
+                                .Where(f => taskIdsToDelete.Contains(f.IdZadania ?? 0))
+                                .Select(f => f.IdFaktury)
+                                .ToList();
 
-                        // Zapisz zmiany
-                        context.SaveChanges();
+                            var requestIdsToDelete = context.Requests
+                                .Where(w => taskIdsToDelete.Contains(w.IdZadania ?? 0))
+                                .Select(w => w.IdWniosku)
+                                .ToList();
 
-                        // Odśwież listę projektów
-                        Projects = dataStore.GetProjects();
-                        ProjectList.ItemsSource = Projects;
+                            // Usuń faktury i wnioski
+                            context.Invoices.RemoveRange(context.Invoices.Where(f => invoiceIdsToDelete.Contains(f.IdFaktury)));
+                            context.Requests.RemoveRange(context.Requests.Where(w => requestIdsToDelete.Contains(w.IdWniosku)));
+
+                            // Usuń zadania
+                            context.Tasks.RemoveRange(context.Tasks.Where(z => taskIdsToDelete.Contains(z.IdZadania)));
+
+                            // Usuń projekt
+                            context.Projects.Remove(projectToDelete);
+
+                            // Zapisz zmiany
+                            context.SaveChanges();
+
+                            // Odśwież listę projektów
+                            Projects = dataStore.GetProjects();
+                            ProjectList.ItemsSource = Projects;
+                        }
+
                     }
-                  
                 }
             }
-
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -73,7 +74,7 @@ namespace ZarządzanieBudżetem.View.User
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new ApplicationDbContext()) // Zastąp ApplicationDbContext odpowiednim kontekstem bazodanowym
+            using (var context = new ApplicationDbContext()) 
             {
                 // Pętla po wszystkich zadaniach w DataGrid
                 foreach (var task in Tasks)
@@ -84,6 +85,7 @@ namespace ZarządzanieBudżetem.View.User
                     if (existingTask != null)
                     {
                         // Aktualizuj pola zadania na podstawie zmian wprowadzonych w interfejsie użytkownika
+                        existingTask.Lp = task.Lp;
                         existingTask.Nazwa_Kosztu = task.Nazwa_Kosztu;
                         existingTask.Wartość_Ogółem = task.Wartość_Ogółem;
                         existingTask.Wydatki_Kwalifikowane = task.Wydatki_Kwalifikowane;
@@ -92,8 +94,28 @@ namespace ZarządzanieBudżetem.View.User
                         existingTask.Ilość_Personelu = task.Ilość_Personelu;
                         existingTask.Zakończone = task.Zakończone;
                     }
-                }
+                    if (existingTask == null)
+                    {
+                        // Nowy obiekt Task na podstawie danych z interfejsu użytkownika
+                        var newTask = new Zadania
+                        {
+                            Lp= task.Lp,
+                            Nazwa_Kosztu = task.Nazwa_Kosztu,
+                            Wartość_Ogółem = task.Wartość_Ogółem,
+                            Wydatki_Kwalifikowane = task.Wydatki_Kwalifikowane,
+                            Dofinansowanie = task.Dofinansowanie,
+                            Kategoria_Kosztów = task.Kategoria_Kosztów,
+                            Ilość_Personelu = task.Ilość_Personelu,
+                            Zakończone = task.Zakończone,
+                            IdProjektu = App.CurrentProjectId
+                        };
 
+                        // Dodaj nowy obiekt do kontekstu bazy danych
+                        context.Tasks.Add(newTask);
+                       
+                    }
+                }
+              
                 // Zapisz zmiany w bazie danych
                 context.SaveChanges();
                 MessageBox.Show("Zapisano zmiany");
@@ -128,9 +150,63 @@ namespace ZarządzanieBudżetem.View.User
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new UserProjectPage());
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            // Sprawdź, czy coś jest zaznaczone w liście
+            if (TaskListView.SelectedItem != null)
+            {
+                // Pobierz wybrane zadanie
+                Zadania selectedTask = (Zadania)TaskListView.SelectedItem;
+
+                MessageBoxResult result = MessageBox.Show($"Czy na pewno chcesz usunąć zadanie {selectedTask.Nazwa_Kosztu}?", "Potwierdzenie usunięcia", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Usuń z bazy danych
+                    using (var context = new ApplicationDbContext())
+                    {
+                        var taskToDelete = context.Tasks
+                            .Where(z => z.IdZadania == selectedTask.IdZadania)
+                            .FirstOrDefault();
+
+                        if (taskToDelete != null)
+                        {
+                            // Pobierz wszystkie związane z zadaniem faktury i wnioski
+                            var invoiceIdsToDelete = context.Invoices
+                                .Where(f => f.IdZadania == selectedTask.IdZadania)
+                                .Select(f => f.IdFaktury)
+                                .ToList();
+
+                            var requestIdsToDelete = context.Requests
+                                .Where(w => w.IdZadania == selectedTask.IdZadania)
+                                .Select(w => w.IdWniosku)
+                                .ToList();
+
+                            // Usuń faktury i wnioski
+                            context.Invoices.RemoveRange(context.Invoices.Where(f => invoiceIdsToDelete.Contains(f.IdFaktury)));
+                            context.Requests.RemoveRange(context.Requests.Where(w => requestIdsToDelete.Contains(w.IdWniosku)));
+
+                            // Usuń zadanie
+                            context.Tasks.Remove(taskToDelete);
+
+                            // Zapisz zmiany
+                            context.SaveChanges();
+
+                            // Odśwież listę zadań
+                            Tasks = dataStore.GetTasksForProject();
+                            TaskListView.ItemsSource = Tasks;
+
+                        }
+                    }
+                }
+
+            }
+            else { MessageBox.Show("najpierw wybierz pole z listy"); }
         }
     }
 }

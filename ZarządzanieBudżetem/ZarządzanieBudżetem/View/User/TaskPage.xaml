@@ -32,7 +32,7 @@
                         <DataGridTextColumn Header="Ilość Personelu" Binding="{Binding Ilość_Personelu}" Width="Auto" />
                         <DataGridCheckBoxColumn Header="Zakończone" Binding="{Binding Zakończone, Mode=TwoWay}" Width="Auto" />
                         <DataGridTextColumn Header="Wydane" Binding="{Binding SumaWydatków}" Width="Auto" IsReadOnly="True"  />
-                        
+
 
 
 
@@ -40,9 +40,10 @@
                 </DataGrid>
             </ScrollViewer>
         </Border>
-        <Button Content="Załaduj z Excela" Click="ImportButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,262,0,0" Height="49" Width="95"/>
+        <Button Content="Załaduj z Excela" Click="ImportButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,490,0,0" Height="49" Width="95"/>
         <Button Name="Details" Content="Szczegóły" HorizontalAlignment="Left" Height="39" Margin="10,117,0,0" VerticalAlignment="Top" Width="85" Click="Details_Click"/>
         <Button Name="Save" Content="Zapisz" HorizontalAlignment="Left" Height="37" Margin="10,188,0,0" VerticalAlignment="Top" Width="85" Click="Save_Click"/>
-        <Button Content="Powrót" Name="Back" HorizontalAlignment="Left" Height="37" Margin="10,30,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click"/>
+        <Button Content="Powrót" Name="Back" HorizontalAlignment="Left" Height="37" Margin="10,30,0,0" VerticalAlignment="Top" Width="85" Click="Back_Click"/>
+        <Button Content="Usuń" Name="Delete" HorizontalAlignment="Left" Height="36" Margin="10,252,0,0" VerticalAlignment="Top" Width="85" Click="Delete_Click"/>
     </Grid>
 </Page>
