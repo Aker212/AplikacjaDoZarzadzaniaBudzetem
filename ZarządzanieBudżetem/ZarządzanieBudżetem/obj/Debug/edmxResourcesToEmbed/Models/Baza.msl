@@ -22,6 +22,7 @@
           <ScalarProperty Name="IdProjektu" ColumnName="IdProjektu" />
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
           <ScalarProperty Name="Data_Utworzenia" ColumnName="Data_Utworzenia" />
+          <ScalarProperty Name="Ostatnie_Użycie" ColumnName="Ostatnie_Użycie" />
           <ScalarProperty Name="IdUżytkownika" ColumnName="IdUżytkownika" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -60,7 +61,8 @@
           <ScalarProperty Name="Kategoria_Kosztów" ColumnName="Kategoria_Kosztów" />
           <ScalarProperty Name="Ilość_Personelu" ColumnName="Ilość_Personelu" />
           <ScalarProperty Name="Zakończone" ColumnName="Zakończone" />
-          <ScalarProperty Name="SumaWydatków" ColumnName="SumaWydatków" />
+          <ScalarProperty Name="Pozostałe_Środki" ColumnName="Pozostałe_Środki" />
+          <ScalarProperty Name="Suma_Wydatków" ColumnName="Suma_Wydatków" />
           <ScalarProperty Name="IdProjektu" ColumnName="IdProjektu" />
         </MappingFragment>
       </EntityTypeMapping>

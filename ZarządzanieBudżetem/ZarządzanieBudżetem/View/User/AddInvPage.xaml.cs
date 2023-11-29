@@ -32,7 +32,7 @@ namespace ZarządzanieBudżetem.View.User
         {
             // Pobierz wartości z pól
             string nrFaktury = NrFakturyTextBox.Text;
-            decimal kwota = decimal.Parse(KwotaTextBox.Text); // Zakładam, że kwota jest liczbą, możesz dostosować odpowiednio
+            decimal kwota = decimal.Parse(KwotaTextBox.Text); 
             DateTime dataFaktury = (DataFakturyDatePicker.SelectedDate ?? DateTime.Now).Date;
             string opis = OpisTextBox.Text;
             string jednostka = JednostkaTextBox.Text;
@@ -63,8 +63,8 @@ namespace ZarządzanieBudżetem.View.User
                 MessageBox.Show("Faktura została pomyślnie dodana.");
 
                 // Wywołaj procedurę sumującą po dodaniu faktury
-                context.Database.ExecuteSqlCommand("EXEC SumInvoiceAmountForTask @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
-
+                context.Database.ExecuteSqlCommand("EXEC SumaWydatkowDlaZadania @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
+                context.Database.ExecuteSqlCommand("EXEC PozostaleSrodkiDlaZadnia @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
 
 
                 NavigationService.Navigate(new TaskDetailsPage());

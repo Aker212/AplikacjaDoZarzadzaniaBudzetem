@@ -138,11 +138,11 @@ namespace ZarządzanieBudżetem.View.User
                 // Pobierz ścieżkę do wybranego pliku Excela
                 string excelFilePath = openFileDialog.FileName;
 
-                // Utwórz instancję klasy ExcelImporter i zaimportuj dane
+                
                 var excelImporter = new ExcelImporter();
                 excelImporter.ImportData(excelFilePath);
 
-                // Dodaj kod obsługujący, co ma się stać po zaimportowaniu danych (np. wyświetlenie komunikatu)
+                
                 Tasks = dataStore.GetTasksForProject();
                 TaskListView.ItemsSource = Tasks;
                 

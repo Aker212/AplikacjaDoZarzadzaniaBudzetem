@@ -1,4 +1,4 @@
-CREATE PROCEDURE SumInvoiceAmountForTask
+CREATE PROCEDURE SumaWydatkowDlaZadania
     @IdZadania INT
 AS
 BEGIN
@@ -13,6 +13,6 @@ BEGIN
 
     -- Aktualizuj pole w tabeli zadañ
     UPDATE Zadania
-    SET SumaWydatków = @SumaWydatkow
+    SET Suma_Wydatków = @SumaWydatkow
     WHERE IdZadania = @IdZadania;
 END

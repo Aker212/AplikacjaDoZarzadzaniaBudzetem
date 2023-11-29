@@ -116,12 +116,18 @@ namespace ZarządzanieBudżetem.View.User
 
                 // Zapisz zmiany w bazie danych
                 context.SaveChanges();
-                context.Database.ExecuteSqlCommand("EXEC SumInvoiceAmountForTask @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
+                context.Database.ExecuteSqlCommand("EXEC SumaWydatkowDlaZadania @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
+                context.Database.ExecuteSqlCommand("EXEC PozostaleSrodkiDlaZadnia @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
                 MessageBox.Show("Zapisano zmiany");
                 CollectionViewSource.GetDefaultView(Invoices).Refresh();
 
             }
 
+        }
+
+        private void ReqInv_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddReqPage());
         }
     }
 }

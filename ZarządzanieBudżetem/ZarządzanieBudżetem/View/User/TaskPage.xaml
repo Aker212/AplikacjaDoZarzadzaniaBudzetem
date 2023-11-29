@@ -29,9 +29,11 @@
                         <DataGridTextColumn Header="Wydatki Kwalifikowane" Binding="{Binding Wydatki_Kwalifikowane}" Width="Auto" />
                         <DataGridTextColumn Header="Dofinansowanie" Binding="{Binding Dofinansowanie}" Width="Auto" />
                         <DataGridTextColumn Header="Kategoria Kosztów" Binding="{Binding Kategoria_Kosztów}" Width="Auto" />
+                        <DataGridTextColumn Header="Pozostałe Środki" Binding="{Binding Pozostałe_Środki}" Width="Auto" IsReadOnly="True"  />
+                        <DataGridTextColumn Header="Wydane" Binding="{Binding Suma_Wydatków}" Width="Auto" IsReadOnly="True"  />
                         <DataGridTextColumn Header="Ilość Personelu" Binding="{Binding Ilość_Personelu}" Width="Auto" />
                         <DataGridCheckBoxColumn Header="Zakończone" Binding="{Binding Zakończone, Mode=TwoWay}" Width="Auto" />
-                        <DataGridTextColumn Header="Wydane" Binding="{Binding SumaWydatków}" Width="Auto" IsReadOnly="True"  />
+                        
 
 
 

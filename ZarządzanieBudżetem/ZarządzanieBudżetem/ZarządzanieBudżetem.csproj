@@ -134,6 +134,9 @@
     <Compile Include="View\User\AddInvPage.xaml.cs">
       <DependentUpon>AddInvPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\User\AddReqPage.xaml.cs">
+      <DependentUpon>AddReqPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\User\TaskDetailsPage.xaml.cs">
       <DependentUpon>TaskDetailsPage.xaml</DependentUpon>
     </Compile>
@@ -178,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\User\AddInvPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\AddReqPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

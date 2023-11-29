@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -7,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using ZarządzanieBudżetem.Models;
 
@@ -42,6 +44,19 @@ namespace ZarządzanieBudżetem.View.User
             {
                 Projekty selectedProject = (Projekty)ProjectList.SelectedItem;
 
+                using (var context = new ApplicationDbContext())
+                {
+                    var projectToUpdate = context.Projects.Find(selectedProject.IdProjektu);
+
+                    if (projectToUpdate != null)
+                    {
+                        // Aktualizuj pole Ostatnie_Użycie na obecną datę i czas
+                        projectToUpdate.Ostatnie_Użycie = DateTime.Now;
+
+                        // Zapisz zmiany w bazie danych
+                        context.SaveChanges();
+                    }
+                }
 
                 App.CurrentProjectId = selectedProject.IdProjektu;
                 NavigationService.Navigate(new TaskPage());
@@ -49,6 +64,28 @@ namespace ZarządzanieBudżetem.View.User
 
 
 
+            }
+        }
+
+        private void ProjectListView_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+
+
+            var scrollViewer = VisualTreeHelper.GetChild(ProjectList, 0) as ScrollViewer;
+
+            if (scrollViewer != null)
+            {
+
+                if (e.Delta > 0)
+                {
+                    scrollViewer.LineUp();
+                }
+                else
+                {
+                    scrollViewer.LineDown();
+                }
+
+                e.Handled = true;
             }
         }
 

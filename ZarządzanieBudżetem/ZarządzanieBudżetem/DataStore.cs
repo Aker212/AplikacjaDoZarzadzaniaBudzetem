@@ -19,7 +19,9 @@ namespace ZarządzanieBudżetem
             {
                 return context.Projects
                              .Where(p => p.IdUżytkownika == App.CurrentUserId)
+                             .OrderByDescending(p => p.Ostatnie_Użycie)
                              .ToList();
+                             
             }
         }
 

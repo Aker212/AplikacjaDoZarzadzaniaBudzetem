@@ -30,7 +30,8 @@ namespace ZarządzanieBudżetem.Models
         public string Kategoria_Kosztów { get; set; }
         public Nullable<int> Ilość_Personelu { get; set; }
         public Nullable<bool> Zakończone { get; set; }
-        public Nullable<decimal> SumaWydatków { get; set; }
+        public Nullable<decimal> Pozostałe_Środki { get; set; }
+        public Nullable<decimal> Suma_Wydatków { get; set; }
         public Nullable<int> IdProjektu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -9,20 +9,22 @@
       Title="UserProjectPage">
 
     <Grid Background="White">
-
-        <ListBox Name="ProjectList" ItemsSource="{Binding Projects}" MouseDoubleClick="ListBox_MouseDoubleClick" Margin="64,25,157,339" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Nazwa}" />
-                        <TextBlock Text="{Binding Data_Utworzenia}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        
-        <Button Content="Dodaj nowy projekt" HorizontalAlignment="Left" Height="52" Margin="64,491,0,0" VerticalAlignment="Top" Width="136" Click="Button_Click"/>
-        <Button Click="DeleteProject_Click" Content="Usuń projekt" HorizontalAlignment="Left" Height="52" Margin="297,491,0,0" VerticalAlignment="Top" Width="148"/>
+        <Border BorderThickness="1" BorderBrush="Black" Margin="100,10,101,373" Height="341" >
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,-1,20">
+                <ListBox Name="ProjectList" ItemsSource="{Binding Projects}" MouseDoubleClick="ListBox_MouseDoubleClick" Margin="64,25,63,39" ScrollViewer.CanContentScroll="False" PreviewMouseWheel="ProjectListView_PreviewMouseWheel" Width="Auto" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Nazwa}" />
+                                <TextBlock Text="{Binding Data_Utworzenia,StringFormat=\{0:dd-MM-yyyy\}}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+        </Border>
+        <Button Content="Dodaj nowy projekt" HorizontalAlignment="Left" Height="52" Margin="66,464,0,0" VerticalAlignment="Top" Width="136" Click="Button_Click"/>
+        <Button Click="DeleteProject_Click" Content="Usuń projekt" HorizontalAlignment="Left" Height="52" Margin="297,464,0,0" VerticalAlignment="Top" Width="148"/>
 
 
     </Grid>

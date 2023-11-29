@@ -23,6 +23,7 @@ namespace ZarządzanieBudżetem.Models
         public int IdProjektu { get; set; }
         public string Nazwa { get; set; }
         public System.DateTime Data_Utworzenia { get; set; }
+        public System.DateTime Ostatnie_Użycie { get; set; }
         public Nullable<int> IdUżytkownika { get; set; }
     
         public virtual Użytkownicy Użytkownicy { get; set; }

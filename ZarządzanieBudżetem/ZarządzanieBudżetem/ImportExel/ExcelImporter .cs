@@ -25,7 +25,7 @@ namespace ZarządzanieBudżetem.ImportExel
 
                     int rowCount = worksheet.Dimension.Rows;
 
-                    for (int row = 2; row <= rowCount; row++) // Zakładam, że dane zaczynają się od drugiego wiersza
+                    for (int row = 2; row <= rowCount; row++) 
                     {
                         // Odczytaj dane z poszczególnych kolumn
 
@@ -45,12 +45,14 @@ namespace ZarządzanieBudżetem.ImportExel
                             Wydatki_Kwalifikowane = wydatkiKwalifikowane,
                             Dofinansowanie = dofinansowanie,
                             Kategoria_Kosztów = kategoriaKosztow,
-                            Ilość_Personelu = 0,
+                            Ilość_Personelu = null,
                             Zakończone = false,
+                            Pozostałe_Środki = dofinansowanie,
                             IdProjektu = App.CurrentProjectId
+
                         };
 
-                        // Wywołaj funkcję SaveDataToDatabase, aby zapisać dane do bazy danych
+                        
                         SaveDataToDatabase(zadanie);
 
                     }

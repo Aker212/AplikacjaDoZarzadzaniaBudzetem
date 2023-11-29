@@ -1,0 +1,27 @@
+﻿<Page x:Class="ZarządzanieBudżetem.View.User.AddReqPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZarządzanieBudżetem.View.User"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="AddReqPage">
+
+    <Grid Background="White">
+        <Label Content="Dodaj nowy wniosek" HorizontalAlignment="Center" FontSize="28" Margin="0,44,0,0" VerticalAlignment="Top" Height="54" Width="271"/>
+        <TextBox Name="NrKsięgowyTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Margin="464,132,0,636" Width="242" Height="32" />
+        <Label HorizontalAlignment="Left" Height="29" Margin="464,98,0,0"  VerticalAlignment="Top" Width="130" Content="NrKsięgowy"/>
+
+        <TextBox Name="KwotaDofinansowaniaTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Margin="464,222,0,546" Width="242"/>
+        <Label HorizontalAlignment="Left" Height="29" Margin="464,188,0,0"  VerticalAlignment="Top" Width="130" Content="Kwota Dofinansowania"/>
+        <!-- Data Wniosku -->
+        <DatePicker x:Name="DataWnioskuDatePicker" HorizontalAlignment="Left" Margin="464,311,0,0" VerticalAlignment="Top" Width="242" Height="32" />
+        <Label Content="Data Wniosku" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="464,280,0,0"/>
+
+
+
+        <Button Name="AddReq" Content="Dodaj nowy wniosek" HorizontalAlignment="Left" Height="46" Margin="385,0,0,0" VerticalAlignment="Center" Width="144" Click="AddReq_Click"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Height="46" Margin="620,0,0,0" VerticalAlignment="Center" Width="116" Click="Back_Click"/>
+    </Grid>
+</Page>

@@ -16,7 +16,7 @@
                         <DataGridTextColumn Header="Nr faktury" Binding="{Binding Nr_faktury}" Width="Auto" />
                         <DataGridTextColumn Header="Kwota" Binding="{Binding Kwota}" Width="Auto" />
                         <DataGridTextColumn Header="Opis" Binding="{Binding Opis}" Width="350" />
-                        <DataGridTextColumn Header="Data Faktury" Binding="{Binding Data_Faktury}" Width="Auto" />
+                        <DataGridTextColumn Header="Data Faktury" Binding="{Binding Data_Faktury, StringFormat=\{0:dd-MM-yyyy\}}" Width="Auto" />
                         <DataGridTextColumn Header="Jednostka" Binding="{Binding Jednostka}" Width="Auto" />
                         <DataGridTextColumn Header="Budynek" Binding="{Binding Budynek}" Width="Auto" />
                         <DataGridTextColumn Header="Pokój" Binding="{Binding Pokój}" Width="Auto" />
@@ -41,5 +41,6 @@
         <Button Name="Save" Content="Zapisz" HorizontalAlignment="Left" Height="44" Margin="1041,120,0,0" VerticalAlignment="Top" Width="104" Click="Save_Click"/>
         <Button Name="AddInv" Content="Dodaj fakture" HorizontalAlignment="Left" Margin="1041,38,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="AddInv_Click"/>
         <Button Name="Back" Content="Powrót" HorizontalAlignment="Left" Height="44" Margin="29,60,0,0" VerticalAlignment="Top" Width="111" Click="Back_Click"/>
+        <Button Name="AddReq" Content="Dodaj wniosek" HorizontalAlignment="Left" Margin="1041,419,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="ReqInv_Click"/>
     </Grid>
 </Page>

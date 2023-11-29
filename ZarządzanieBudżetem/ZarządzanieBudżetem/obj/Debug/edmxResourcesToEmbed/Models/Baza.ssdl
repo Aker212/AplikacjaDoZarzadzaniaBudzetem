@@ -21,6 +21,7 @@
     <Property Name="IdProjektu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Data_Utworzenia" Type="date" Nullable="false" />
+    <Property Name="Ostatnie_Użycie" Type="datetime" Nullable="false" />
     <Property Name="IdUżytkownika" Type="int" />
   </EntityType>
   <EntityType Name="Użytkownicy">
@@ -56,10 +57,11 @@
     <Property Name="Kategoria_Kosztów" Type="nvarchar" MaxLength="50" />
     <Property Name="Ilość_Personelu" Type="int" />
     <Property Name="Zakończone" Type="bit" />
-    <Property Name="SumaWydatków" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Pozostałe_Środki" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Suma_Wydatków" Type="decimal" Precision="18" Scale="2" />
     <Property Name="IdProjektu" Type="int" />
   </EntityType>
-  <Association Name="FK__Faktury__IdZadan__08B54D69">
+  <Association Name="FK__Faktury__IdZadan__503BEA1C">
     <End Role="Zadania" Type="Self.Zadania" Multiplicity="0..1" />
     <End Role="Faktury" Type="Self.Faktury" Multiplicity="*" />
     <ReferentialConstraint>
@@ -71,7 +73,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Projekty__IdUżyt__398D8EEE">
+  <Association Name="FK__Projekty__IdUżyt__3E1D39E1">
     <End Role="Użytkownicy" Type="Self.Użytkownicy" Multiplicity="0..1" />
     <End Role="Projekty" Type="Self.Projekty" Multiplicity="*" />
     <ReferentialConstraint>
@@ -83,7 +85,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Wnioski__IdZadan__05D8E0BE">
+  <Association Name="FK__Wnioski__IdZadan__4C6B5938">
     <End Role="Zadania" Type="Self.Zadania" Multiplicity="0..1" />
     <End Role="Wnioski" Type="Self.Wnioski" Multiplicity="*" />
     <ReferentialConstraint>
@@ -95,7 +97,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Zadania__IdProje__02FC7413">
+  <Association Name="FK__Zadania__IdProje__498EEC8D">
     <End Role="Projekty" Type="Self.Projekty" Multiplicity="0..1" />
     <End Role="Zadania" Type="Self.Zadania" Multiplicity="*" />
     <ReferentialConstraint>
@@ -113,19 +115,19 @@
     <EntitySet Name="Użytkownicy" EntityType="Self.Użytkownicy" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Wnioski" EntityType="Self.Wnioski" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Zadania" EntityType="Self.Zadania" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Faktury__IdZadan__08B54D69" Association="Self.FK__Faktury__IdZadan__08B54D69">
+    <AssociationSet Name="FK__Faktury__IdZadan__503BEA1C" Association="Self.FK__Faktury__IdZadan__503BEA1C">
       <End Role="Zadania" EntitySet="Zadania" />
       <End Role="Faktury" EntitySet="Faktury" />
     </AssociationSet>
-    <AssociationSet Name="FK__Projekty__IdUżyt__398D8EEE" Association="Self.FK__Projekty__IdUżyt__398D8EEE">
+    <AssociationSet Name="FK__Projekty__IdUżyt__3E1D39E1" Association="Self.FK__Projekty__IdUżyt__3E1D39E1">
       <End Role="Użytkownicy" EntitySet="Użytkownicy" />
       <End Role="Projekty" EntitySet="Projekty" />
     </AssociationSet>
-    <AssociationSet Name="FK__Wnioski__IdZadan__05D8E0BE" Association="Self.FK__Wnioski__IdZadan__05D8E0BE">
+    <AssociationSet Name="FK__Wnioski__IdZadan__4C6B5938" Association="Self.FK__Wnioski__IdZadan__4C6B5938">
       <End Role="Zadania" EntitySet="Zadania" />
       <End Role="Wnioski" EntitySet="Wnioski" />
     </AssociationSet>
-    <AssociationSet Name="FK__Zadania__IdProje__02FC7413" Association="Self.FK__Zadania__IdProje__02FC7413">
+    <AssociationSet Name="FK__Zadania__IdProje__498EEC8D" Association="Self.FK__Zadania__IdProje__498EEC8D">
       <End Role="Projekty" EntitySet="Projekty" />
       <End Role="Zadania" EntitySet="Zadania" />
     </AssociationSet>

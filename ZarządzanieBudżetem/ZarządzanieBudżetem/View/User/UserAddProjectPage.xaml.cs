@@ -30,6 +30,7 @@ namespace ZarządzanieBudżetem.View.User
                 {
                     Nazwa = name,
                     Data_Utworzenia = DateTime.ParseExact(dataString, "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    Ostatnie_Użycie = DateTime.Now,
                     IdUżytkownika = App.CurrentUserId
 
                 };
