@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ZarządzanieBudżetem.Models;
 
 namespace ZarządzanieBudżetem.View.User
@@ -30,9 +20,15 @@ namespace ZarządzanieBudżetem.View.User
 
         private void AddInv_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(NrFakturyTextBox.Text))
+            {
+                MessageBox.Show("Wypełnij pole nr_faktury przed dodaniem.");
+                return;
+            }
+
             // Pobierz wartości z pól
             string nrFaktury = NrFakturyTextBox.Text;
-            decimal kwota = decimal.Parse(KwotaTextBox.Text); 
+            decimal kwota = decimal.Parse(KwotaTextBox.Text);
             DateTime dataFaktury = (DataFakturyDatePicker.SelectedDate ?? DateTime.Now).Date;
             string opis = OpisTextBox.Text;
             string jednostka = JednostkaTextBox.Text;
@@ -40,7 +36,7 @@ namespace ZarządzanieBudżetem.View.User
             string pokoj = PokojTextBox.Text;
 
 
-            
+
             string dataString = dataFaktury.ToString("dd-MM-yyyy");
 
             using (var context = new ApplicationDbContext())

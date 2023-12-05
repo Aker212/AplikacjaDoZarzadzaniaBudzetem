@@ -24,6 +24,12 @@ namespace ZarządzanieBudżetem.Models
         public string Nazwa { get; set; }
         public System.DateTime Data_Utworzenia { get; set; }
         public System.DateTime Ostatnie_Użycie { get; set; }
+        public int LpColumn { get; set; }
+        public int NazwaKosztuColumn { get; set; }
+        public int WartoscOgolnaColumn { get; set; }
+        public int WydatkiKwalifikowaneColumn { get; set; }
+        public int DofinansowanieColumn { get; set; }
+        public int KategoriaKosztowColumn { get; set; }
         public Nullable<int> IdUżytkownika { get; set; }
     
         public virtual Użytkownicy Użytkownicy { get; set; }

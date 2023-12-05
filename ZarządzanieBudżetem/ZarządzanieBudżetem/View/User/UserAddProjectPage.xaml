@@ -5,14 +5,26 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ZarządzanieBudżetem.View.User"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="UserAddProjectPage">
 
     <Grid Background="White">
         <Label Content="Dodaj nowy projekt" HorizontalAlignment="Center" FontSize="28" Margin="0,44,0,0" VerticalAlignment="Top" Height="54" Width="271"/>
-        <TextBox Name="NameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" Margin="0,147,0,274" Width="192" Height="29"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="304,120,0,0"  VerticalAlignment="Top" Width="130" Content="Nazwa"/>
-        <Button Name="AddNewProject" Content="Dodaj nowy projekt" HorizontalAlignment="Center" Height="46" Margin="0,225,0,0" VerticalAlignment="Top" Width="144" Click="Login_Click"/>
+        <TextBox Name="NameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" Margin="0,152,0,619" Width="192" Height="29"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="504,124,0,0"  VerticalAlignment="Top" Width="130" Content="Nazwa"/>
+        <Button Name="AddNewProject" Content="Dodaj nowy projekt" HorizontalAlignment="Center" Height="46" Margin="0,617,0,0" VerticalAlignment="Top" Width="144" Click="Create_Click"/>
+        <TextBox Name="LpColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="1" Margin="0,214,0,557" Width="192" Height="29"/>
+        <Label HorizontalAlignment="Left" Height="28" Margin="504,186,0,0"  VerticalAlignment="Top" Width="130" Content="Lp Kolumna"/>
+        <TextBox Name="NazwaKosztuColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="2" Margin="0,276,0,495" Width="192" Height="29"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="504,248,0,0"  VerticalAlignment="Top" Width="150" Content="Nazwa Kosztu Kolumna"/>
+        <TextBox Name="WartoscOgolnaColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="6" Margin="0,338,0,433" Width="192" Height="29"/>
+        <Label HorizontalAlignment="Left" Height="28" Margin="504,310,0,0"  VerticalAlignment="Top" Width="150" Content="Wartość Ogólna Kolumna"/>
+        <TextBox Name="WydatkiKwalifikowaneColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="7" Margin="0,400,0,371" Width="192" Height="29"/>
+        <Label HorizontalAlignment="Center" Height="28" Margin="0,372,0,0"  VerticalAlignment="Top" Width="192" Content="Wydatki Kwalifikowane Kolumna"/>
+        <TextBox Name="DofinansowanieColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="8" Margin="0,462,0,309" Width="192" Height="29"/>
+        <Label HorizontalAlignment="Center" Height="28" Margin="0,434,0,0"  VerticalAlignment="Top" Width="192" Content="Dofinansowanie Kolumna"/>
+        <TextBox Name="KategoriaKosztowColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="9" Margin="0,524,0,247" Width="192" Height="29"/>
+        <Label HorizontalAlignment="Center" Height="28" Margin="0,496,0,0"  VerticalAlignment="Top" Width="192" Content="Kategoria Kosztów Kolumna"/>
 
     </Grid>
 </Page>

@@ -48,13 +48,13 @@ namespace ZarządzanieBudżetem.View
 
 
                     NavigationService.Navigate(new AdministratorPage());
-                 
+
                 }
                 else if (userRole == "User")
                 {
                     App.CurrentUserId = user.IdUżytkownika;
                     NavigationService.Navigate(new UserProjectPage());
-                   
+
                 }
 
 

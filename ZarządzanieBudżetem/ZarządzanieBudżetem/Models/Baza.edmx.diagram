@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4c2175b8c64a4469ac891069680bc339" Name="Diagram1">
+      <Diagram DiagramId="48ab1c33467744398a032a93d1923da0" Name="Diagram1">
         <EntityTypeShape EntityType="BudżetModel.Faktury" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BudżetModel.Projekty" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BudżetModel.Projekty" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BudżetModel.Użytkownicy" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="BudżetModel.Wnioski" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BudżetModel.Zadania" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
-        <AssociationConnector Association="BudżetModel.FK__Faktury__IdZadan__503BEA1C" ManuallyRouted="false" />
-        <AssociationConnector Association="BudżetModel.FK__Projekty__IdUżyt__3E1D39E1" ManuallyRouted="false" />
-        <AssociationConnector Association="BudżetModel.FK__Zadania__IdProje__498EEC8D" ManuallyRouted="false" />
-        <AssociationConnector Association="BudżetModel.FK__Wnioski__IdZadan__4C6B5938" ManuallyRouted="false" />
+        <AssociationConnector Association="BudżetModel.FK__Faktury__IdZadan__6AEFE058" ManuallyRouted="false" />
+        <AssociationConnector Association="BudżetModel.FK__Projekty__IdUżyt__625A9A57" ManuallyRouted="false" />
+        <AssociationConnector Association="BudżetModel.FK__Zadania__IdProje__65370702" ManuallyRouted="false" />
+        <AssociationConnector Association="BudżetModel.FK__Wnioski__IdZadan__681373AD" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

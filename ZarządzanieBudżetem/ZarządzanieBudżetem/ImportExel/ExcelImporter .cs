@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using OfficeOpenXml;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Data;
-using OfficeOpenXml;
 using ZarządzanieBudżetem.Models;
 
 namespace ZarządzanieBudżetem.ImportExel
@@ -25,16 +20,33 @@ namespace ZarządzanieBudżetem.ImportExel
 
                     int rowCount = worksheet.Dimension.Rows;
 
-                    for (int row = 2; row <= rowCount; row++) 
+                    for (int row = 2; row <= rowCount; row++)
                     {
                         // Odczytaj dane z poszczególnych kolumn
+                        
+                        int lp;
+                        decimal wartoscOgolna, wydatkiKwalifikowane, dofinansowanie;
 
-                        int lp = int.Parse(worksheet.Cells[row, 1].Value?.ToString());
-                        string nazwaKosztu = worksheet.Cells[row, 2].Value?.ToString();
-                        decimal wartoscOgolna = decimal.Parse(worksheet.Cells[row, 6].Value?.ToString());
-                        decimal wydatkiKwalifikowane = decimal.Parse(worksheet.Cells[row, 7].Value?.ToString());
-                        decimal dofinansowanie = decimal.Parse(worksheet.Cells[row, 8].Value?.ToString());
-                        string kategoriaKosztow = worksheet.Cells[row, 9].Value?.ToString();
+                        if (!int.TryParse(worksheet.Cells[row, App.LpColumn].Value?.ToString(), out lp))
+                        {
+                            lp = 0; // Domyślna wartość dla typu int
+                        }
+                      
+                        if (!decimal.TryParse(worksheet.Cells[row, App.WartoscOgolnaColumn].Value?.ToString(), out wartoscOgolna))
+                        {
+                            wartoscOgolna = 0m; // Domyślna wartość dla typu decimal
+                        }
+                        if (!decimal.TryParse(worksheet.Cells[row, App.WydatkiKwalifikowaneColumn].Value?.ToString(), out wydatkiKwalifikowane))
+                        {
+                            wydatkiKwalifikowane = 0m; // Domyślna wartość dla typu decimal
+                        }
+                        if (!decimal.TryParse(worksheet.Cells[row, App.DofinansowanieColumn].Value?.ToString(), out dofinansowanie))
+                        {
+                            dofinansowanie = 0m; // Domyślna wartość dla typu decimal
+                        }
+                        
+                                      string nazwaKosztu = worksheet.Cells[row, App.NazwaKosztuColumn].Value?.ToString();
+                                      string kategoriaKosztow = worksheet.Cells[row, App.KategoriaKosztowColumn].Value?.ToString();
 
                         // Stwórz obiekt Zadania
                         var zadanie = new Zadania
@@ -52,19 +64,19 @@ namespace ZarządzanieBudżetem.ImportExel
 
                         };
 
-                        
+
                         SaveDataToDatabase(zadanie);
 
                     }
                 }
 
-                // Dodaj kod obsługujący, co ma się stać po zaimportowaniu danych
-                 MessageBox.Show("Dane zostały zaimportowane pomyślnie.");
+               
+                MessageBox.Show("Dane zostały zaimportowane pomyślnie.");
             }
             catch (Exception ex)
             {
                 // Dodaj kod obsługujący błędy (np. wyświetlenie komunikatu z błędem)
-                 MessageBox.Show($"Wystąpił błąd podczas importu danych: {ex.Message}");
+                MessageBox.Show($"Wystąpił błąd podczas importu danych: {ex.Message}");
             }
         }
 
@@ -76,7 +88,7 @@ namespace ZarządzanieBudżetem.ImportExel
                 context.Tasks.Add(zadanie);
                 context.SaveChanges();
             }
-         
+
 
         }
     }

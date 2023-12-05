@@ -25,6 +25,7 @@
         </Border>
         <Button Content="Dodaj nowy projekt" HorizontalAlignment="Left" Height="52" Margin="66,464,0,0" VerticalAlignment="Top" Width="136" Click="Button_Click"/>
         <Button Click="DeleteProject_Click" Content="Usuń projekt" HorizontalAlignment="Left" Height="52" Margin="297,464,0,0" VerticalAlignment="Top" Width="148"/>
+        <Button Content="Edytuj projekt" HorizontalAlignment="Left" Height="52" Margin="556,464,0,0" VerticalAlignment="Top" Width="136" Click="Edit_Click"/>
 
 
     </Grid>

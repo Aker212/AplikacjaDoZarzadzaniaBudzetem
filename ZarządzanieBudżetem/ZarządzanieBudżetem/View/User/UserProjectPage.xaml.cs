@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Navigation;
@@ -21,7 +17,7 @@ namespace ZarządzanieBudżetem.View.User
     public partial class UserProjectPage : Page
     {
         public List<Projekty> Projects { get; set; }
-      
+
         private DataStore dataStore;
 
         public UserProjectPage()
@@ -59,6 +55,12 @@ namespace ZarządzanieBudżetem.View.User
                 }
 
                 App.CurrentProjectId = selectedProject.IdProjektu;
+                App.LpColumn = selectedProject.LpColumn;
+                App.NazwaKosztuColumn = selectedProject.NazwaKosztuColumn;
+                App.DofinansowanieColumn = selectedProject.DofinansowanieColumn;
+                App.WartoscOgolnaColumn = selectedProject.WartoscOgolnaColumn;
+                App.WydatkiKwalifikowaneColumn = selectedProject.WydatkiKwalifikowaneColumn;
+                App.KategoriaKosztowColumn = selectedProject.KategoriaKosztowColumn;
                 NavigationService.Navigate(new TaskPage());
 
 
@@ -147,6 +149,23 @@ namespace ZarządzanieBudżetem.View.User
 
                     }
                 }
+            }
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (ProjectList.SelectedItem != null)
+            {
+                // Pobierz wybrany projekt
+                Projekty selectedProject = (Projekty)ProjectList.SelectedItem;
+
+                App.CurrentProjectId = selectedProject.IdProjektu;
+                // Przejdź do strony edycji projektu, przekazując wybrany projekt jako parametr
+                NavigationService.Navigate(new EditProjectPage(selectedProject));
+            }
+            else
+            {
+                MessageBox.Show("Najpierw wybierz projekt z listy.");
             }
         }
     }

@@ -137,6 +137,9 @@
     <Compile Include="View\User\AddReqPage.xaml.cs">
       <DependentUpon>AddReqPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\User\EditProjectPage.xaml.cs">
+      <DependentUpon>EditProjectPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\User\TaskDetailsPage.xaml.cs">
       <DependentUpon>TaskDetailsPage.xaml</DependentUpon>
     </Compile>
@@ -148,9 +151,6 @@
     </Compile>
     <Compile Include="View\User\UserProjectPage.xaml.cs">
       <DependentUpon>UserProjectPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\WelcomePage.xaml.cs">
-      <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -188,6 +188,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\User\EditProjectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\User\TaskDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,10 +205,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\User\UserProjectPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

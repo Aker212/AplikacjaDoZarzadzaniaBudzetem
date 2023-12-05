@@ -23,6 +23,12 @@
           <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
           <ScalarProperty Name="Data_Utworzenia" ColumnName="Data_Utworzenia" />
           <ScalarProperty Name="Ostatnie_Użycie" ColumnName="Ostatnie_Użycie" />
+          <ScalarProperty Name="LpColumn" ColumnName="LpColumn" />
+          <ScalarProperty Name="NazwaKosztuColumn" ColumnName="NazwaKosztuColumn" />
+          <ScalarProperty Name="WartoscOgolnaColumn" ColumnName="WartoscOgolnaColumn" />
+          <ScalarProperty Name="WydatkiKwalifikowaneColumn" ColumnName="WydatkiKwalifikowaneColumn" />
+          <ScalarProperty Name="DofinansowanieColumn" ColumnName="DofinansowanieColumn" />
+          <ScalarProperty Name="KategoriaKosztowColumn" ColumnName="KategoriaKosztowColumn" />
           <ScalarProperty Name="IdUżytkownika" ColumnName="IdUżytkownika" />
         </MappingFragment>
       </EntityTypeMapping>

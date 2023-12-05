@@ -1,9 +1,6 @@
 ﻿using Microsoft.Win32;
-using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,13 +17,13 @@ namespace ZarządzanieBudżetem.View.User
     public partial class TaskPage : Page
     {
         public List<Zadania> Tasks { get; set; }
-     
+
         private DataStore dataStore;
         public TaskPage()
         {
             InitializeComponent();
             dataStore = new DataStore();
-           
+
             Tasks = dataStore.GetTasksForProject();
             DataContext = this;
         }
@@ -74,7 +71,7 @@ namespace ZarządzanieBudżetem.View.User
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new ApplicationDbContext()) 
+            using (var context = new ApplicationDbContext())
             {
                 // Pętla po wszystkich zadaniach w DataGrid
                 foreach (var task in Tasks)
@@ -99,7 +96,7 @@ namespace ZarządzanieBudżetem.View.User
                         // Nowy obiekt Task na podstawie danych z interfejsu użytkownika
                         var newTask = new Zadania
                         {
-                            Lp= task.Lp,
+                            Lp = task.Lp,
                             Nazwa_Kosztu = task.Nazwa_Kosztu,
                             Wartość_Ogółem = task.Wartość_Ogółem,
                             Wydatki_Kwalifikowane = task.Wydatki_Kwalifikowane,
@@ -112,17 +109,17 @@ namespace ZarządzanieBudżetem.View.User
 
                         // Dodaj nowy obiekt do kontekstu bazy danych
                         context.Tasks.Add(newTask);
-                       
+
                     }
                 }
-              
+
                 // Zapisz zmiany w bazie danych
                 context.SaveChanges();
                 MessageBox.Show("Zapisano zmiany");
                 CollectionViewSource.GetDefaultView(Tasks).Refresh();
 
             }
-            }
+        }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
@@ -138,14 +135,14 @@ namespace ZarządzanieBudżetem.View.User
                 // Pobierz ścieżkę do wybranego pliku Excela
                 string excelFilePath = openFileDialog.FileName;
 
-                
+
                 var excelImporter = new ExcelImporter();
                 excelImporter.ImportData(excelFilePath);
 
-                
+
                 Tasks = dataStore.GetTasksForProject();
                 TaskListView.ItemsSource = Tasks;
-                
+
             }
 
         }

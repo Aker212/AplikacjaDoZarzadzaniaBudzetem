@@ -21,7 +21,13 @@ namespace ZarządzanieBudżetem.View
 
         private void Register_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            // Sprawdź, czy wszystkie pola są uzupełnione
+            if (string.IsNullOrEmpty(EmailTextBox.Text) || string.IsNullOrEmpty(PasswordBox.Password) ||
+                string.IsNullOrEmpty(PasswordBoxRepat.Password))
+            {
+                MessageBox.Show("Wypełnij wszystkie pola przed aktualizacją.");
+                return;
+            }
 
             string email = EmailTextBox.Text;
             string password = PasswordBox.Password;

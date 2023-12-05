@@ -21,7 +21,7 @@ namespace ZarządzanieBudżetem
                              .Where(p => p.IdUżytkownika == App.CurrentUserId)
                              .OrderByDescending(p => p.Ostatnie_Użycie)
                              .ToList();
-                             
+
             }
         }
 
@@ -58,7 +58,7 @@ namespace ZarządzanieBudżetem
         {
             using (var context = new ApplicationDbContext())
             {
-                return context.Users                              
+                return context.Users
                               .ToList();
             }
         }

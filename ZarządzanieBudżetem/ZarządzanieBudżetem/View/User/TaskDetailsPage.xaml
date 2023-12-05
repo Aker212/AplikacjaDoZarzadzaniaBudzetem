@@ -20,7 +20,7 @@
                         <DataGridTextColumn Header="Jednostka" Binding="{Binding Jednostka}" Width="Auto" />
                         <DataGridTextColumn Header="Budynek" Binding="{Binding Budynek}" Width="Auto" />
                         <DataGridTextColumn Header="Pokój" Binding="{Binding Pokój}" Width="Auto" />
-                        <!-- Dodaj inne kolumny dla tabeli faktury -->
+
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
@@ -33,14 +33,16 @@
                         <DataGridTextColumn Header="Data Wniosku" Binding="{Binding Data_Wniosku}" Width="Auto" />
                         <DataGridTextColumn Header="Kwota Dofinansowania" Binding="{Binding Kwota_Dofinansowania}" Width="Auto" />
 
-                        <!-- Dodaj inne kolumny dla tabeli Wnioski -->
+
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
         </Border>
-        <Button Name="Save" Content="Zapisz" HorizontalAlignment="Left" Height="44" Margin="1041,120,0,0" VerticalAlignment="Top" Width="104" Click="Save_Click"/>
-        <Button Name="AddInv" Content="Dodaj fakture" HorizontalAlignment="Left" Margin="1041,38,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="AddInv_Click"/>
-        <Button Name="Back" Content="Powrót" HorizontalAlignment="Left" Height="44" Margin="29,60,0,0" VerticalAlignment="Top" Width="111" Click="Back_Click"/>
-        <Button Name="AddReq" Content="Dodaj wniosek" HorizontalAlignment="Left" Margin="1041,419,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="ReqInv_Click"/>
+        <Button Name="Save" Content="Zapisz" HorizontalAlignment="Center" Height="44" Margin="1041,299,0,0" VerticalAlignment="Top" Width="104" Click="Save_Click"/>
+        <Button Name="AddInv" Content="Dodaj fakture" HorizontalAlignment="Center" Margin="1041,38,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="AddInv_Click"/>
+        <Button Name="Back" Content="Powrót" HorizontalAlignment="Left" Height="44" Margin="39,33,0,0" VerticalAlignment="Top" Width="111" Click="Back_Click"/>
+        <Button Name="AddReq" Content="Dodaj wniosek" HorizontalAlignment="Center" Margin="1041,419,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="ReqInv_Click" RenderTransformOrigin="0.445,-1.125"/>
+        <Button Name="DeleteInv" Content="Usuń fakture" HorizontalAlignment="Center" Margin="1041,106,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="DeleteInv_Click"/>
+        <Button Name="DeleteReq" Content="Usuń wnioski" HorizontalAlignment="Center" Margin="1041,498,0,0" VerticalAlignment="Top" Height="44" Width="104" Click="DeleteReq_Click"/>
     </Grid>
 </Page>

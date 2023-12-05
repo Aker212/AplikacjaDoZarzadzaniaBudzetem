@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ZarządzanieBudżetem.Models;
 
 namespace ZarządzanieBudżetem.View.User
@@ -27,10 +21,10 @@ namespace ZarządzanieBudżetem.View.User
         private DataStore dataStore;
         public TaskDetailsPage()
         {
-            
+
             InitializeComponent();
-            dataStore = new DataStore();         
-            Invoices = dataStore.GetInvoices(); 
+            dataStore = new DataStore();
+            Invoices = dataStore.GetInvoices();
             Requests = dataStore.GetRequests();
             DataContext = this;
         }
@@ -57,7 +51,7 @@ namespace ZarządzanieBudżetem.View.User
                 e.Handled = true;
             }
         }
-        
+
         private void WnioskiListView_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
 
@@ -93,12 +87,12 @@ namespace ZarządzanieBudżetem.View.User
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new ApplicationDbContext()) 
+            using (var context = new ApplicationDbContext())
             {
                 // Pętla po wszystkich fakturacg w DataGrid
                 foreach (var inv in Invoices)
                 {
-                    // Tutaj możesz dodać logikę zapisywania zmian w bazie danych dla każdej faktury
+
                     var existingInv = context.Invoices.Find(inv.IdFaktury);
 
                     if (existingInv != null)
@@ -114,13 +108,28 @@ namespace ZarządzanieBudżetem.View.User
                     }
                 }
 
+                // Pętla po wszystkich fakturacg w DataGrid
+                foreach (var req in Requests)
+                {
+
+                    var existingReq = context.Requests.Find(req.IdWniosku);
+
+                    if (existingReq != null)
+                    {
+                        // Aktualizuj pola zadania na podstawie zmian wprowadzonych w interfejsie użytkownika
+                        existingReq.NrKsięgowy = req.NrKsięgowy;
+                        existingReq.Kwota_Dofinansowania = req.Kwota_Dofinansowania;
+                        existingReq.Data_Wniosku = req.Data_Wniosku;
+                    }
+                }
+
                 // Zapisz zmiany w bazie danych
                 context.SaveChanges();
                 context.Database.ExecuteSqlCommand("EXEC SumaWydatkowDlaZadania @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
                 context.Database.ExecuteSqlCommand("EXEC PozostaleSrodkiDlaZadnia @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
                 MessageBox.Show("Zapisano zmiany");
                 CollectionViewSource.GetDefaultView(Invoices).Refresh();
-
+                CollectionViewSource.GetDefaultView(Requests).Refresh();
             }
 
         }
@@ -128,6 +137,89 @@ namespace ZarządzanieBudżetem.View.User
         private void ReqInv_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddReqPage());
+        }
+
+        private void DeleteInv_Click(object sender, RoutedEventArgs e)
+        {
+            if (InvoiceListView.SelectedItem != null)
+            {
+                // Pobierz wybraną fakturę
+                Faktury selectedInvoice = (Faktury)InvoiceListView.SelectedItem;
+
+                MessageBoxResult result = MessageBox.Show($"Czy na pewno chcesz usunąć fakturę o numerze {selectedInvoice.Nr_faktury}?", "Potwierdzenie usunięcia", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Usuń z bazy danych
+                    using (var context = new ApplicationDbContext())
+                    {
+                        var invoiceToDelete = context.Invoices
+                            .Where(f => f.IdFaktury == selectedInvoice.IdFaktury)
+                            .FirstOrDefault();
+
+                        if (invoiceToDelete != null)
+                        {
+                            // Usuń fakturę
+                            context.Invoices.Remove(invoiceToDelete);
+
+                            // Zapisz zmiany
+                            context.SaveChanges();
+
+                            // Odśwież listę faktur
+                            Invoices = dataStore.GetInvoices(); 
+                            InvoiceListView.ItemsSource = Invoices;
+                        }
+                        context.Database.ExecuteSqlCommand("EXEC SumaWydatkowDlaZadania @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
+                        context.Database.ExecuteSqlCommand("EXEC PozostaleSrodkiDlaZadnia @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Najpierw wybierz fakturę z listy.");
+            }
+        }
+
+        private void DeleteReq_Click(object sender, RoutedEventArgs e)
+        {
+            // Sprawdź, czy coś jest zaznaczone w liście wniosków
+            if (WnioskiListView.SelectedItem != null)
+            {
+                // Pobierz wybrany wniosek
+                Wnioski selectedRequest = (Wnioski)WnioskiListView.SelectedItem;
+
+                MessageBoxResult result = MessageBox.Show($"Czy na pewno chcesz usunąć wniosek o numerze księgowym {selectedRequest.NrKsięgowy}?", "Potwierdzenie usunięcia", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Usuń z bazy danych
+                    using (var context = new ApplicationDbContext())
+                    {
+                        var requestToDelete = context.Requests
+                            .Where(w => w.IdWniosku == selectedRequest.IdWniosku)
+                            .FirstOrDefault();
+
+                        if (requestToDelete != null)
+                        {
+                            // Usuń wniosek
+                            context.Requests.Remove(requestToDelete);
+
+                            // Zapisz zmiany
+                            context.SaveChanges();
+
+                            // Odśwież listę wniosków
+                            Requests = dataStore.GetRequests(); 
+                            WnioskiListView.ItemsSource = Requests;
+                        }
+                        context.Database.ExecuteSqlCommand("EXEC SumaWydatkowDlaZadania @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
+                        context.Database.ExecuteSqlCommand("EXEC PozostaleSrodkiDlaZadnia @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Najpierw wybierz wniosek z listy.");
+            }
         }
     }
 }

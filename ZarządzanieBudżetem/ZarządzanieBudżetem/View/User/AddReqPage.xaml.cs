@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ZarządzanieBudżetem.Models;
 
 namespace ZarządzanieBudżetem.View.User
@@ -30,11 +20,17 @@ namespace ZarządzanieBudżetem.View.User
 
         private void AddReq_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(NrKsięgowyTextBox.Text))
+            {
+                MessageBox.Show("Wypełnij pole nrKsięgowy przed dodaniem.");
+                return;
+            }
+
             // Pobierz wartości z pól
             string nrKsięgowy = NrKsięgowyTextBox.Text;
             decimal kwota = decimal.Parse(KwotaDofinansowaniaTextBox.Text); // Zakładam, że kwota jest liczbą, możesz dostosować odpowiednio
             DateTime dataWniosku = (DataWnioskuDatePicker.SelectedDate ?? DateTime.Now).Date;
-            
+
 
             string dataString = dataWniosku.ToString("dd-MM-yyyy");
 
@@ -45,7 +41,7 @@ namespace ZarządzanieBudżetem.View.User
                     NrKsięgowy = nrKsięgowy,
                     Kwota_Dofinansowania = kwota,
                     Data_Wniosku = DateTime.ParseExact(dataString, "dd-MM-yyyy", CultureInfo.InvariantCulture),
-                    
+
                     IdZadania = App.CurrentTaskId
 
                 };

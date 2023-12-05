@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using ZarządzanieBudżetem.Models;
-using ZarządzanieBudżetem.View.User;
 
 namespace ZarządzanieBudżetem.View.Admin
 {
@@ -25,7 +23,7 @@ namespace ZarządzanieBudżetem.View.Admin
             DataContext = this;
         }
 
-     
+
 
         private void Save_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -39,7 +37,7 @@ namespace ZarządzanieBudżetem.View.Admin
 
                     if (existingUser != null)
                     {
-                        
+
                         existingUser.Email = user.Email;
                         existingUser.Rola = user.Rola;
                     }
