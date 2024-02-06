@@ -5,13 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:importExel="clr-namespace:ZarządzanieBudżetem.ImportExel"
       xmlns:userView="clr-namespace:ZarządzanieBudżetem.View.User"
+      KeyDown="Shortuct"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1200"
       Title="TaskPage">
-
+  
+   
 
     <Grid Background="AntiqueWhite">
-        <Border BorderThickness="1" BorderBrush="Black" Margin="100,10,44,159">
+        <Border BorderThickness="1" BorderBrush="Black" Margin="100,48,44,120">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,-84,20">
                 <DataGrid Name="TaskListView" AutoGenerateColumns="False" ItemsSource="{Binding Tasks}" Margin="10,27,100,50" ScrollViewer.CanContentScroll="False" PreviewMouseWheel="TaskListView_PreviewMouseWheel" Height="600" >
                     <DataGrid.Columns>
@@ -29,7 +31,7 @@
                         <DataGridTextColumn Header="Wydatki Kwalifikowane" Binding="{Binding Wydatki_Kwalifikowane}" Width="Auto" />
                         <DataGridTextColumn Header="Dofinansowanie" Binding="{Binding Dofinansowanie}" Width="Auto" />
                         <DataGridTextColumn Header="Kategoria Kosztów" Binding="{Binding Kategoria_Kosztów}" Width="Auto" />
-                        <DataGridTextColumn Header="Pozostałe Środki" Binding="{Binding Pozostałe_Środki}" Width="Auto" IsReadOnly="True"  />
+                        <DataGridTextColumn Header="Pozostałe Środki" Binding="{Binding Pozostałe_Środki}" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Header="Wydane" Binding="{Binding Suma_Wydatków}" Width="Auto" IsReadOnly="True"  />
                         <DataGridTextColumn Header="Ilość Personelu" Binding="{Binding Ilość_Personelu}" Width="Auto" />
                         <DataGridCheckBoxColumn Header="Zakończone" Binding="{Binding Zakończone, Mode=TwoWay}" Width="Auto" />
@@ -39,13 +41,16 @@
 
 
                     </DataGrid.Columns>
+
+
                 </DataGrid>
             </ScrollViewer>
         </Border>
-        <Button Content="Załaduj z Excela" Click="ImportButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,490,0,0" Height="49" Width="95"/>
+        <Button Content="Załaduj z Exela" Click="ImportButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,490,0,0" Height="49" Width="95"/>
         <Button Name="Details" Content="Szczegóły" HorizontalAlignment="Left" Height="39" Margin="10,117,0,0" VerticalAlignment="Top" Width="85" Click="Details_Click"/>
         <Button Name="Save" Content="Zapisz" HorizontalAlignment="Left" Height="37" Margin="10,188,0,0" VerticalAlignment="Top" Width="85" Click="Save_Click"/>
         <Button Content="Powrót" Name="Back" HorizontalAlignment="Left" Height="37" Margin="10,30,0,0" VerticalAlignment="Top" Width="85" Click="Back_Click"/>
         <Button Content="Usuń" Name="Delete" HorizontalAlignment="Left" Height="36" Margin="10,252,0,0" VerticalAlignment="Top" Width="85" Click="Delete_Click"/>
+        <Button Content="Wyloguj" Click="LogoutButton_Click" HorizontalAlignment="Left" Height="36" Width="80" Margin="15,754,1105,10"/>
     </Grid>
 </Page>

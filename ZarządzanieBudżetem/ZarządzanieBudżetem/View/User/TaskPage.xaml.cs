@@ -21,11 +21,13 @@ namespace ZarządzanieBudżetem.View.User
         private DataStore dataStore;
         public TaskPage()
         {
+
             InitializeComponent();
             dataStore = new DataStore();
 
             Tasks = dataStore.GetTasksForProject();
             DataContext = this;
+
         }
 
         private void TaskListView_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
@@ -68,9 +70,21 @@ namespace ZarządzanieBudżetem.View.User
             }
             else { MessageBox.Show("najpierw wybierz pole z listy"); }
         }
+        private void Shortuct(object sender, KeyEventArgs e)
+        {
+
+            if ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                if (e.Key == Key.S && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+                {
+                    Save_Click(sender, e);
+                }
+            }
+        }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+
             using (var context = new ApplicationDbContext())
             {
                 // Pętla po wszystkich zadaniach w DataGrid
@@ -119,6 +133,7 @@ namespace ZarządzanieBudżetem.View.User
                 CollectionViewSource.GetDefaultView(Tasks).Refresh();
 
             }
+
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
@@ -151,6 +166,8 @@ namespace ZarządzanieBudżetem.View.User
         {
             NavigationService.Navigate(new UserProjectPage());
         }
+
+
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
@@ -204,6 +221,22 @@ namespace ZarządzanieBudżetem.View.User
 
             }
             else { MessageBox.Show("najpierw wybierz pole z listy"); }
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.CurrentUserId = 0;
+            App.CurrentProjectId = 0;
+            App.CurrentTaskId = 0;
+            App.SellectedUserId = 0;
+            App.InvoiceId = 0;
+            App.LpColumn = 0;
+            App.NazwaKosztuColumn = 0;
+            App.WartoscOgolnaColumn = 0;
+            App.WydatkiKwalifikowaneColumn = 0;
+            App.DofinansowanieColumn = 0;
+            App.KategoriaKosztowColumn = 0;
+            NavigationService.Navigate(new LoginPage());
         }
     }
 }

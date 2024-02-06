@@ -120,6 +120,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="PozostaleSrodkiDlaZadnia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdZadania" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SumaWydatkowDlaZadania" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdZadania" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="BudżetModelStoreContainer">
           <EntitySet Name="Faktury" EntityType="Self.Faktury" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Projekty" EntityType="Self.Projekty" Schema="dbo" store:Type="Tables" />
@@ -293,6 +299,12 @@
             <End Role="Zadania" EntitySet="Zadania" />
             <End Role="Wnioski" EntitySet="Wnioski" />
           </AssociationSet>
+          <FunctionImport Name="PozostaleSrodkiDlaZadnia">
+            <Parameter Name="IdZadania" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SumaWydatkowDlaZadania">
+            <Parameter Name="IdZadania" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -372,6 +384,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PozostaleSrodkiDlaZadnia" FunctionName="BudżetModel.Store.PozostaleSrodkiDlaZadnia" />
+          <FunctionImportMapping FunctionImportName="SumaWydatkowDlaZadania" FunctionName="BudżetModel.Store.SumaWydatkowDlaZadania" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

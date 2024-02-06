@@ -85,6 +85,17 @@ namespace ZarządzanieBudżetem.View.User
             NavigationService.Navigate(new TaskPage());
         }
 
+        private void Shortuct(object sender, KeyEventArgs e)
+        {
+
+            if ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                if (e.Key == Key.S && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+                {
+                    Save_Click(sender, e);
+                }
+            }
+        }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             using (var context = new ApplicationDbContext())
@@ -166,7 +177,7 @@ namespace ZarządzanieBudżetem.View.User
                             context.SaveChanges();
 
                             // Odśwież listę faktur
-                            Invoices = dataStore.GetInvoices(); 
+                            Invoices = dataStore.GetInvoices();
                             InvoiceListView.ItemsSource = Invoices;
                         }
                         context.Database.ExecuteSqlCommand("EXEC SumaWydatkowDlaZadania @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
@@ -208,7 +219,7 @@ namespace ZarządzanieBudżetem.View.User
                             context.SaveChanges();
 
                             // Odśwież listę wniosków
-                            Requests = dataStore.GetRequests(); 
+                            Requests = dataStore.GetRequests();
                             WnioskiListView.ItemsSource = Requests;
                         }
                         context.Database.ExecuteSqlCommand("EXEC SumaWydatkowDlaZadania @IdZadania", new SqlParameter("@IdZadania", App.CurrentTaskId));
@@ -219,6 +230,25 @@ namespace ZarządzanieBudżetem.View.User
             else
             {
                 MessageBox.Show("Najpierw wybierz wniosek z listy.");
+            }
+        }
+
+        private void Generete_Click(object sender, RoutedEventArgs e)
+        {
+            if (InvoiceListView.SelectedItem != null)
+            {
+                if (InvoiceListView.SelectedItem is Faktury selectedItem)
+                {
+                    Faktury selectedInv = (Faktury)InvoiceListView.SelectedItem;
+                    App.InvoiceId = selectedItem.IdFaktury;
+
+                    NavigationService.Navigate(new GenereteWordPage(selectedInv));
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Najpierw wybierz fakturę z listy.");
             }
         }
     }

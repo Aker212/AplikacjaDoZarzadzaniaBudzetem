@@ -23,7 +23,7 @@ namespace ZarządzanieBudżetem.ImportExel
                     for (int row = 2; row <= rowCount; row++)
                     {
                         // Odczytaj dane z poszczególnych kolumn
-                        
+
                         int lp;
                         decimal wartoscOgolna, wydatkiKwalifikowane, dofinansowanie;
 
@@ -31,7 +31,7 @@ namespace ZarządzanieBudżetem.ImportExel
                         {
                             lp = 0; // Domyślna wartość dla typu int
                         }
-                      
+
                         if (!decimal.TryParse(worksheet.Cells[row, App.WartoscOgolnaColumn].Value?.ToString(), out wartoscOgolna))
                         {
                             wartoscOgolna = 0m; // Domyślna wartość dla typu decimal
@@ -44,9 +44,9 @@ namespace ZarządzanieBudżetem.ImportExel
                         {
                             dofinansowanie = 0m; // Domyślna wartość dla typu decimal
                         }
-                        
-                                      string nazwaKosztu = worksheet.Cells[row, App.NazwaKosztuColumn].Value?.ToString();
-                                      string kategoriaKosztow = worksheet.Cells[row, App.KategoriaKosztowColumn].Value?.ToString();
+
+                        string nazwaKosztu = worksheet.Cells[row, App.NazwaKosztuColumn].Value?.ToString();
+                        string kategoriaKosztow = worksheet.Cells[row, App.KategoriaKosztowColumn].Value?.ToString();
 
                         // Stwórz obiekt Zadania
                         var zadanie = new Zadania
@@ -70,7 +70,7 @@ namespace ZarządzanieBudżetem.ImportExel
                     }
                 }
 
-               
+
                 MessageBox.Show("Dane zostały zaimportowane pomyślnie.");
             }
             catch (Exception ex)

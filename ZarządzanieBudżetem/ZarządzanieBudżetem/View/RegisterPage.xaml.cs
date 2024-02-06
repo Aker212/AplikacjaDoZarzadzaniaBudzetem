@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using ZarządzanieBudżetem.Models;
 
@@ -28,6 +29,8 @@ namespace ZarządzanieBudżetem.View
                 MessageBox.Show("Wypełnij wszystkie pola przed aktualizacją.");
                 return;
             }
+            
+            
 
             string email = EmailTextBox.Text;
             string password = PasswordBox.Password;
@@ -40,11 +43,18 @@ namespace ZarządzanieBudżetem.View
 
             DataStore userDataStorage = new DataStore();
             bool isEmailExists = userDataStorage.IsEmailAlreadyExists(email);
+            bool isValidEmail = userDataStorage.IsValidEmail(email);
+            if (!isValidEmail)
+            {
+                MessageBox.Show("Popraw adres email przykład: user@gmail.com .");
+                return;
+            }
 
             if (isEmailExists)
             {
                 MessageBox.Show("Użytkownik z takim emailem już istnieje.");
             }
+
 
             else
             {

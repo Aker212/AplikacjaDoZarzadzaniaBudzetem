@@ -145,5 +145,11 @@
       <End Role="Zadania" EntitySet="Zadania" />
       <End Role="Wnioski" EntitySet="Wnioski" />
     </AssociationSet>
+    <FunctionImport Name="PozostaleSrodkiDlaZadnia">
+      <Parameter Name="IdZadania" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SumaWydatkowDlaZadania">
+      <Parameter Name="IdZadania" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

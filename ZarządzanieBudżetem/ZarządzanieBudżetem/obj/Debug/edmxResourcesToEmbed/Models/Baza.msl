@@ -73,5 +73,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PozostaleSrodkiDlaZadnia" FunctionName="BudżetModel.Store.PozostaleSrodkiDlaZadnia" />
+    <FunctionImportMapping FunctionImportName="SumaWydatkowDlaZadania" FunctionName="BudżetModel.Store.SumaWydatkowDlaZadania" />
   </EntityContainerMapping>
 </Mapping>

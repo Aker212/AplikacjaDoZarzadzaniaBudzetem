@@ -13,5 +13,7 @@ namespace ZarządzanieBudżetem
             InitializeComponent();
             MainContent.Navigate(new LoginPage());
         }
+
+       
     }
 }

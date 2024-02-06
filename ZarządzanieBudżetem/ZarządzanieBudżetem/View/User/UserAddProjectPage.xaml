@@ -12,7 +12,7 @@
         <Label Content="Dodaj nowy projekt" HorizontalAlignment="Center" FontSize="28" Margin="0,44,0,0" VerticalAlignment="Top" Height="54" Width="271"/>
         <TextBox Name="NameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" Margin="0,152,0,619" Width="192" Height="29"/>
         <Label HorizontalAlignment="Left" Height="23" Margin="504,124,0,0"  VerticalAlignment="Top" Width="130" Content="Nazwa"/>
-        <Button Name="AddNewProject" Content="Dodaj nowy projekt" HorizontalAlignment="Center" Height="46" Margin="0,617,0,0" VerticalAlignment="Top" Width="144" Click="Create_Click"/>
+        <Button Name="AddNewProject" Content="Dodaj nowy projekt" HorizontalAlignment="Left" Height="46" Margin="653,617,0,0" VerticalAlignment="Top" Width="144" Click="Create_Click"/>
         <TextBox Name="LpColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="1" Margin="0,214,0,557" Width="192" Height="29"/>
         <Label HorizontalAlignment="Left" Height="28" Margin="504,186,0,0"  VerticalAlignment="Top" Width="130" Content="Lp Kolumna"/>
         <TextBox Name="NazwaKosztuColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="2" Margin="0,276,0,495" Width="192" Height="29"/>
@@ -25,6 +25,8 @@
         <Label HorizontalAlignment="Center" Height="28" Margin="0,434,0,0"  VerticalAlignment="Top" Width="192" Content="Dofinansowanie Kolumna"/>
         <TextBox Name="KategoriaKosztowColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="9" Margin="0,524,0,247" Width="192" Height="29"/>
         <Label HorizontalAlignment="Center" Height="28" Margin="0,496,0,0"  VerticalAlignment="Top" Width="192" Content="Kategoria Kosztów Kolumna"/>
-
+        <Label Content=" A=1 &#x0a; B=2 &#x0a; C=3 &#x0a; D=4 &#x0a; E=5 &#x0a; F=6 &#x0a; G=7 &#x0a; H=8 &#x0a; I=9 &#x0a; J=10 &#x0a; K=11 &#x0a; ..." HorizontalAlignment="Left" Margin="931,149,0,0" FontSize="18" VerticalAlignment="Top" Height="375" Width="115"/>
+        <Label Content="Rozpiska numeru kolumn" HorizontalAlignment="Left" Height="32" Margin="866,117,0,0" VerticalAlignment="Top" Width="244" FontSize="18"/>
+        <Button Name="Cancel" Click="Cancel_Click" Content="Anuluj" HorizontalAlignment="Left" Height="46" Margin="398,617,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.836,0.605"/>
     </Grid>
 </Page>

@@ -12,6 +12,8 @@ namespace ZarządzanieBudżetem.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BudżetEntities : DbContext
     {
@@ -30,5 +32,23 @@ namespace ZarządzanieBudżetem.Models
         public virtual DbSet<Użytkownicy> Użytkownicy { get; set; }
         public virtual DbSet<Wnioski> Wnioski { get; set; }
         public virtual DbSet<Zadania> Zadania { get; set; }
+    
+        public virtual int PozostaleSrodkiDlaZadnia(Nullable<int> idZadania)
+        {
+            var idZadaniaParameter = idZadania.HasValue ?
+                new ObjectParameter("IdZadania", idZadania) :
+                new ObjectParameter("IdZadania", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PozostaleSrodkiDlaZadnia", idZadaniaParameter);
+        }
+    
+        public virtual int SumaWydatkowDlaZadania(Nullable<int> idZadania)
+        {
+            var idZadaniaParameter = idZadania.HasValue ?
+                new ObjectParameter("IdZadania", idZadania) :
+                new ObjectParameter("IdZadania", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SumaWydatkowDlaZadania", idZadaniaParameter);
+        }
     }
 }

@@ -1,0 +1,43 @@
+﻿<Page x:Class="ZarządzanieBudżetem.View.User.GenereteWordPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZarządzanieBudżetem.View.User"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="GenereteWordPage">
+
+
+    <Grid Background="White">
+        <Label Content="Wygeneruj wniosek" HorizontalAlignment="Center" FontSize="28" Margin="0,10,0,0" VerticalAlignment="Top" Height="54" Width="272"/>
+        <TextBox Name="NrFakturyTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Nr_faktury}" Margin="460,90,0,678" Width="358" Height="32" />
+        <Label HorizontalAlignment="Left" Height="29" Margin="464,56,0,0"  VerticalAlignment="Top" Width="130" Content="NrFaktury"/>
+        <Button Name="GenereteWord" Content="Wygeneruj raport" HorizontalAlignment="Left" Height="46" Margin="423,726,0,0" VerticalAlignment="Top" Width="144" Click="GenereteWord_Click"/>
+        <TextBox Name="KwotaTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Kwota}" Margin="459,397,0,371" Width="242"/>
+        <Label HorizontalAlignment="Left" Height="29" Margin="459,363,0,0"  VerticalAlignment="Top" Width="130" Content="Kwota wydatku"/>
+        <TextBox Name="OpisTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Opis}" Margin="460,152,0,590" Width="362"/>
+        <Label HorizontalAlignment="Left" Height="29" Margin="460,118,0,0" VerticalAlignment="Top" Width="130" Content="Opis"/>
+
+
+
+        <TextBox Name="GotowkaTextBox" Text="Tak/nie" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="459,467,0,301" Width="242" Height="32" />
+        <Label Content="Zapłacono gotówką" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="459,434,0,0"/>
+
+
+        <TextBox Name="ZwrotTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="nie dotyczy/ jeżeli dotyczy do zwrot dla kogo trzeba wpisać" Margin="459,537,0,224" Width="242" />
+        <Label Content="zwrot kwoty w kasie Uczelni dla" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="459,506,0,0"/>
+
+
+        <TextBox Name="PrzedTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="tak/nie" Margin="459,607,0,161" Width="242" Height="32" />
+        <Label Content="dokonano przedpłaty" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="459,576,0,0"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Height="46" Margin="615,726,0,0" VerticalAlignment="Top" Width="116" Click="Back_Click"/>
+        <TextBox Name="NrProceduryTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Margin="455,675,0,93" Width="242" Height="32" />
+        <Label Content="Numer procedury zamówień publicznych" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="455,644,0,0"/>
+        <TextBox Name="PozycjiTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Margin="460,244,0,522" Width="358"/>
+        <Label HorizontalAlignment="Left" Height="29" Margin="455,210,0,0" VerticalAlignment="Top" Width="130" Content="Z pozycji budżetu:"/>
+        <TextBox Name="PozTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="459,324,0,442" Width="358"/>
+        <Label HorizontalAlignment="Left" Height="29" Margin="459,290,0,0" VerticalAlignment="Top" Width="130" Content="poz. budżetu"/>
+
+    </Grid>
+</Page>

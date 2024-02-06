@@ -59,5 +59,10 @@ namespace ZarządzanieBudżetem.View.User
 
             }
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserProjectPage());
+        }
     }
 }

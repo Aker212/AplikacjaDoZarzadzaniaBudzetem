@@ -12,11 +12,15 @@ namespace ZarządzanieBudżetem
         public static int CurrentTaskId { get; set; }
         public static int SellectedUserId { get; set; }
 
+        public static int InvoiceId { get; set; }
+
+
         public static int LpColumn { get; set; }
         public static int NazwaKosztuColumn { get; set; }
         public static int WartoscOgolnaColumn { get; set; }
         public static int WydatkiKwalifikowaneColumn { get; set; }
         public static int DofinansowanieColumn { get; set; }
         public static int KategoriaKosztowColumn { get; set; }
+
     }
 }

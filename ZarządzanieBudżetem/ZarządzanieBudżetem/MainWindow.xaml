@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZarządzanieBudżetem"
+        
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200">
     <StackPanel>
@@ -13,7 +14,6 @@
                 <ColumnDefinition Width="13*"/>
             </Grid.ColumnDefinitions>
             <Frame Name="MainContent" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"/>
-
         </Grid>
     </StackPanel>
 </Window>

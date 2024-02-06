@@ -115,6 +115,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="PozostaleSrodkiDlaZadnia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdZadania" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SumaWydatkowDlaZadania" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdZadania" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="BudżetModelStoreContainer">
     <EntitySet Name="Faktury" EntityType="Self.Faktury" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Projekty" EntityType="Self.Projekty" Schema="dbo" store:Type="Tables" />

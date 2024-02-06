@@ -52,5 +52,6 @@
                 <TextBlock>użytkownika</TextBlock>
             </StackPanel>
         </Button>
+        <Button Content="Wyloguj" Click="LogoutButton_Click" Margin="1109,0,10,769"/>
     </Grid>
 </Page>

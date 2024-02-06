@@ -9,13 +9,13 @@
       Title="EditProjectPage">
 
     <Grid Background="White">
-        <Label Content="Edytuj projekt" HorizontalAlignment="Center" FontSize="28" Margin="0,44,0,0" VerticalAlignment="Top" Height="54" Width="271"/>
+        <Label Content="Edytuj projekt" HorizontalAlignment="Left" FontSize="28" Margin="504,46,0,0" VerticalAlignment="Top" Height="54" Width="271"/>
         <TextBox Name="NameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Nazwa}" Margin="0,152,0,619" Width="192" Height="29"/>
         <Label HorizontalAlignment="Left" Height="23" Margin="504,124,0,0"  VerticalAlignment="Top" Width="130" Content="Nazwa"/>
         <TextBox Name="LpColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding LpColumn}" Margin="0,214,0,557" Width="192" Height="29"/>
         <Label HorizontalAlignment="Left" Height="28" Margin="504,186,0,0"  VerticalAlignment="Top" Width="130" Content="Lp Kolumna"/>
         <TextBox Name="NazwaKosztuColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding NazwaKosztuColumn}" Margin="0,276,0,495" Width="192" Height="29"/>
-        <Label HorizontalAlignment="Left" Height="23" Margin="504,248,0,0"  VerticalAlignment="Top" Width="150" Content="Nazwa Kosztu Kolumna"/>
+        <Label HorizontalAlignment="Left" Height="23" Margin="504,253,0,0"  VerticalAlignment="Top" Width="150" Content="Nazwa Kosztu Kolumna"/>
         <TextBox Name="WartoscOgolnaColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding WartoscOgolnaColumn}" Margin="0,338,0,433" Width="192" Height="29"/>
         <Label HorizontalAlignment="Left" Height="28" Margin="504,310,0,0"  VerticalAlignment="Top" Width="150" Content="Wartość Ogólna Kolumna"/>
         <TextBox Name="WydatkiKwalifikowaneColumnTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding WydatkiKwalifikowaneColumn}" Margin="0,400,0,371" Width="192" Height="29"/>
@@ -26,6 +26,8 @@
         <Label HorizontalAlignment="Center" Height="28" Margin="0,496,0,0"  VerticalAlignment="Top" Width="192" Content="Kategoria Kosztów Kolumna"/>
         <Button Content="Zapisz" HorizontalAlignment="Left" Height="42" Margin="670,591,0,0" VerticalAlignment="Top" Width="132" Click="Save_Click"/>
         <Button Content="Powrót" HorizontalAlignment="Left" Height="42" Margin="380,591,0,0" VerticalAlignment="Top" Width="132" Click="Back_Click"/>
+        <Label Content=" A=1 &#xA; B=2 &#xA; C=3 &#xA; D=4 &#xA; E=5 &#xA; F=6 &#xA; G=7 &#xA; H=8 &#xA; I=9 &#xA; J=10 &#xA; K=11 &#xA; ..." HorizontalAlignment="Left" Margin="931,149,0,0" FontSize="18" VerticalAlignment="Top" Height="375" Width="115"/>
+        <Label Content="Rozpiska numeru kolumn" HorizontalAlignment="Left" Height="32" Margin="866,117,0,0" VerticalAlignment="Top" Width="244" FontSize="18"/>
 
     </Grid>
 </Page>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using ZarządzanieBudżetem.Models;
 
 namespace ZarządzanieBudżetem
@@ -13,6 +14,16 @@ namespace ZarządzanieBudżetem
                 return context.Users.Any(u => u.Email == email);
             }
         }
+
+        public bool IsValidEmail(string email)
+        {
+            // Wyrażenie regularne do sprawdzenia poprawności adresu e-mail
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            // Sprawdzenie zgodności adresu e-mail z wyrażeniem regularnym
+            return Regex.IsMatch(email, pattern);
+        }
+
         public List<Projekty> GetProjects()
         {
             using (var context = new ApplicationDbContext())
@@ -59,6 +70,7 @@ namespace ZarządzanieBudżetem
             using (var context = new ApplicationDbContext())
             {
                 return context.Users
+                              .Where(u => u.Rola == "User")
                               .ToList();
             }
         }

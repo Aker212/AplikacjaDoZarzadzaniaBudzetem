@@ -16,13 +16,23 @@
                     <DataTemplate>
                         <StackPanel>
                             <TextBlock Text="{Binding Nazwa}" />
-                            <TextBlock Text="{Binding Data_Utworzenia}" />
+                            <TextBlock>
+                                 <Run Text="Data utworzenia projektu: "/>
+                                 <Run Text="{Binding Data_Utworzenia, StringFormat=\{0:dd-MM-yyyy\}}" />
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Ostatnie użycie: "/>
+                                <Run Text="{Binding Ostatnie_Użycie}" />
+                            </TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <Button Content="Powrót" Click="Back_Click" HorizontalAlignment="Left" Height="44" Margin="1097,83,0,0" VerticalAlignment="Top" Width="93"/>
 
 
         </Grid>
+        
+        <Button Content="Wyloguj" Click="LogoutButton_Click" Margin="1109,0,10,769"/>
     </Grid>
 </Page>

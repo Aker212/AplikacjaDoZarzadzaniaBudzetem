@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BudżetModelStoreContainer" CdmEntityContainer="BudżetEntities">
+    <EntitySetMapping Name="Faktury">
+      <EntityTypeMapping TypeName="BudżetModel.Faktury">
+        <MappingFragment StoreEntitySet="Faktury">
+          <ScalarProperty Name="IdFaktury" ColumnName="IdFaktury" />
+          <ScalarProperty Name="Nr_faktury" ColumnName="Nr_faktury" />
+          <ScalarProperty Name="Kwota" ColumnName="Kwota" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Data_Faktury" ColumnName="Data_Faktury" />
+          <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
+          <ScalarProperty Name="Budynek" ColumnName="Budynek" />
+          <ScalarProperty Name="Pokój" ColumnName="Pokój" />
+          <ScalarProperty Name="IdZadania" ColumnName="IdZadania" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projekty">
+      <EntityTypeMapping TypeName="BudżetModel.Projekty">
+        <MappingFragment StoreEntitySet="Projekty">
+          <ScalarProperty Name="IdProjektu" ColumnName="IdProjektu" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Data_Utworzenia" ColumnName="Data_Utworzenia" />
+          <ScalarProperty Name="Ostatnie_Użycie" ColumnName="Ostatnie_Użycie" />
+          <ScalarProperty Name="LpColumn" ColumnName="LpColumn" />
+          <ScalarProperty Name="NazwaKosztuColumn" ColumnName="NazwaKosztuColumn" />
+          <ScalarProperty Name="WartoscOgolnaColumn" ColumnName="WartoscOgolnaColumn" />
+          <ScalarProperty Name="WydatkiKwalifikowaneColumn" ColumnName="WydatkiKwalifikowaneColumn" />
+          <ScalarProperty Name="DofinansowanieColumn" ColumnName="DofinansowanieColumn" />
+          <ScalarProperty Name="KategoriaKosztowColumn" ColumnName="KategoriaKosztowColumn" />
+          <ScalarProperty Name="IdUżytkownika" ColumnName="IdUżytkownika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Użytkownicy">
+      <EntityTypeMapping TypeName="BudżetModel.Użytkownicy">
+        <MappingFragment StoreEntitySet="Użytkownicy">
+          <ScalarProperty Name="IdUżytkownika" ColumnName="IdUżytkownika" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Hasło" ColumnName="Hasło" />
+          <ScalarProperty Name="Sól" ColumnName="Sól" />
+          <ScalarProperty Name="Rola" ColumnName="Rola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wnioski">
+      <EntityTypeMapping TypeName="BudżetModel.Wnioski">
+        <MappingFragment StoreEntitySet="Wnioski">
+          <ScalarProperty Name="IdWniosku" ColumnName="IdWniosku" />
+          <ScalarProperty Name="NrKsięgowy" ColumnName="NrKsięgowy" />
+          <ScalarProperty Name="Data_Wniosku" ColumnName="Data_Wniosku" />
+          <ScalarProperty Name="Kwota_Dofinansowania" ColumnName="Kwota_Dofinansowania" />
+          <ScalarProperty Name="IdZadania" ColumnName="IdZadania" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zadania">
+      <EntityTypeMapping TypeName="BudżetModel.Zadania">
+        <MappingFragment StoreEntitySet="Zadania">
+          <ScalarProperty Name="IdZadania" ColumnName="IdZadania" />
+          <ScalarProperty Name="Lp" ColumnName="Lp" />
+          <ScalarProperty Name="Nazwa_Kosztu" ColumnName="Nazwa_Kosztu" />
+          <ScalarProperty Name="Wartość_Ogółem" ColumnName="Wartość_Ogółem" />
+          <ScalarProperty Name="Wydatki_Kwalifikowane" ColumnName="Wydatki_Kwalifikowane" />
+          <ScalarProperty Name="Dofinansowanie" ColumnName="Dofinansowanie" />
+          <ScalarProperty Name="Kategoria_Kosztów" ColumnName="Kategoria_Kosztów" />
+          <ScalarProperty Name="Ilość_Personelu" ColumnName="Ilość_Personelu" />
+          <ScalarProperty Name="Zakończone" ColumnName="Zakończone" />
+          <ScalarProperty Name="Pozostałe_Środki" ColumnName="Pozostałe_Środki" />
+          <ScalarProperty Name="Suma_Wydatków" ColumnName="Suma_Wydatków" />
+          <ScalarProperty Name="IdProjektu" ColumnName="IdProjektu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PozostaleSrodkiDlaZadnia" FunctionName="BudżetModel.Store.PozostaleSrodkiDlaZadnia" />
+    <FunctionImportMapping FunctionImportName="SumaWydatkowDlaZadania" FunctionName="BudżetModel.Store.SumaWydatkowDlaZadania" />
+  </EntityContainerMapping>
+</Mapping>
